@@ -3,154 +3,154 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <item android:title="Develop">
+    <item android:title="@string/group_develop">
         <menu>
             <group android:id="@+id/group_develop"
                 android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_authentication"
                     android:icon="@drawable/ic_authentication"
-                    android:title="Authentication"/>
+                    android:title="@string/title_authentication"/>
                 <item
                     android:id="@+id/nav_database"
                     android:icon="@drawable/ic_database"
-                    android:title="Database"/>
+                    android:title="@string/title_database"/>
                 <item
                     android:id="@+id/nav_functions"
                     android:icon="@drawable/ic_functions"
-                    android:title="Functions"/>
+                    android:title="@string/title_functions"/>
                 <item
                     android:id="@+id/nav_hosting"
                     android:icon="@drawable/ic_hosting"
-                    android:title="Hosting"/>
+                    android:title="@string/title_hosting"/>
                 <item
                     android:id="@+id/nav_ml_kit"
                     android:icon="@drawable/ic_ml_kit"
-                    android:title="ML Kit"/>
+                    android:title="@string/title_ml_kit"/>
                 <item
                     android:id="@+id/nav_storage"
                     android:icon="@drawable/ic_storage"
-                    android:title="Storage"/>
+                    android:title="@string/title_storage"/>
             </group>
         </menu>
     </item>
 
-    <item android:title="Quality">
+    <item android:title="@string/group_quality">
         <menu>
             <group android:id="@+id/group_quality"
                 android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_crashlytics"
                     android:icon="@drawable/ic_crashlytics"
-                    android:title="Crashlytics"/>
+                    android:title="@string/title_crashlytics"/>
                 <item
                     android:id="@+id/nav_performance"
                     android:icon="@drawable/ic_performance"
-                    android:title="Performance"/>
+                    android:title="@string/title_performance"/>
                 <item
                     android:id="@+id/nav_test_lab"
                     android:icon="@drawable/ic_test_lab"
-                    android:title="Test Lab"/>
+                    android:title="@string/title_test_lab"/>
             </group>
         </menu>
     </item>
 
-    <item android:title="Analytics">
+    <item android:title="@string/group_analytics">
         <menu>
             <group android:id="@+id/group_analytics"
                 android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_audiences"
                     android:icon="@drawable/ic_audiences"
-                    android:title="Audiences"/>
+                    android:title="@string/title_audiences"/>
                 <item
                     android:id="@+id/nav_conversions"
                     android:icon="@drawable/ic_conversions"
-                    android:title="Conversions"/>
+                    android:title="@string/title_conversions"/>
                 <item
                     android:id="@+id/nav_dashboard"
                     android:icon="@drawable/ic_dashboard"
-                    android:title="Dashboard"/>
+                    android:title="@string/title_dashboard"/>
                 <item
                     android:id="@+id/nav_debugview"
                     android:icon="@drawable/ic_debugview"
-                    android:title="DebugView"/>
+                    android:title="@string/title_debugview"/>
                 <item
                     android:id="@+id/nav_events"
                     android:icon="@drawable/ic_events"
-                    android:title="Events"/>
+                    android:title="@string/title_events"/>
                 <item
                     android:id="@+id/nav_funnels"
                     android:icon="@drawable/ic_funnels"
-                    android:title="Funnels"/>
+                    android:title="@string/title_funnels"/>
                 <item
                     android:id="@+id/nav_latest_release"
                     android:icon="@drawable/ic_latest_release"
-                    android:title="Latest Release"/>
+                    android:title="@string/title_latest_release"/>
                 <item
                     android:id="@+id/nav_retention"
                     android:icon="@drawable/ic_retention"
-                    android:title="Retention"/>
+                    android:title="@string/title_retention"/>
                 <item
                     android:id="@+id/nav_streamview"
                     android:icon="@drawable/ic_streamview"
-                    android:title="StreamView"/>
+                    android:title="@string/title_streamview"/>
                 <item
                     android:id="@+id/nav_user_properties"
                     android:icon="@drawable/ic_user_properties"
-                    android:title="User Properties"/>
+                    android:title="@string/title_user_properties"/>
             </group>
         </menu>
     </item>
 
-    <item android:title="Grow">
+    <item android:title="@string/group_grow">
         <menu>
             <group android:id="@+id/group_grow"
                 android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_ab_testing"
                     android:icon="@drawable/ic_ab_testing"
-                    android:title="A/B Testing"/>
+                    android:title="@string/title_ab_testing"/>
                 <item
                     android:id="@+id/nav_admob"
                     android:icon="@drawable/ic_admob"
-                    android:title="Admob"/>
+                    android:title="@string/title_admob"/>
                 <item
                     android:id="@+id/nav_cloud_messaging"
                     android:icon="@drawable/ic_cloud_messaging"
-                    android:title="Cloud Messaging"/>
+                    android:title="@string/title_cloud_messaging"/>
                 <item
                     android:id="@+id/nav_dynamic_links"
                     android:icon="@drawable/ic_dynamic_links"
-                    android:title="Dynamic Links"/>
+                    android:title="@string/title_dynamic_links"/>
                 <item
                     android:id="@+id/nav_in_app_messaging"
                     android:icon="@drawable/ic_in_app_messaging"
-                    android:title="In-App Messaging"/>
+                    android:title="@string/title_in_app_messaging"/>
                 <item
                     android:id="@+id/nav_predictions"
                     android:icon="@drawable/ic_predictions"
-                    android:title="Predictions"/>
+                    android:title="@string/title_predictions"/>
                 <item
                     android:id="@+id/nav_remote_config"
                     android:icon="@drawable/ic_remote_config"
-                    android:title="Remote Config"/>
+                    android:title="@string/title_remote_config"/>
             </group>
         </menu>
     </item>
 
-    <item android:title="Links">
+    <item android:title="@string/group_links">
         <menu>
             <group android:id="@+id/group_links"
                 android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_tutorial"
                     android:icon="@drawable/ic_tutorial"
-                    android:title="View Tutorial" />
+                    android:title="@string/title_tutorial" />
                 <item
                     android:id="@+id/nav_about"
                     android:icon="@drawable/ic_about"
-                    android:title="About App" />
+                    android:title="@string/title_about" />
             </group>
         </menu>
     </item>
