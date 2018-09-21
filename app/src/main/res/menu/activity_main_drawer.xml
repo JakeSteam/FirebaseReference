@@ -61,43 +61,43 @@
                 android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_audiences"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:icon="@drawable/ic_audiences"
                     android:title="Audiences"/>
                 <item
                     android:id="@+id/nav_conversions"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:icon="@drawable/ic_conversions"
                     android:title="Conversions"/>
                 <item
                     android:id="@+id/nav_dashboard"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:icon="@drawable/ic_dashboard"
                     android:title="Dashboard"/>
                 <item
                     android:id="@+id/nav_debugview"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:icon="@drawable/ic_debugview"
                     android:title="DebugView"/>
                 <item
                     android:id="@+id/nav_events"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:icon="@drawable/ic_events"
                     android:title="Events"/>
                 <item
                     android:id="@+id/nav_funnels"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:icon="@drawable/ic_funnels"
                     android:title="Funnels"/>
                 <item
                     android:id="@+id/nav_latest_release"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:icon="@drawable/ic_latest_release"
                     android:title="Latest Release"/>
                 <item
                     android:id="@+id/nav_retention"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:icon="@drawable/ic_retention"
                     android:title="Retention"/>
                 <item
                     android:id="@+id/nav_streamview"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:icon="@drawable/ic_streamview"
                     android:title="StreamView"/>
                 <item
                     android:id="@+id/nav_user_properties"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:icon="@drawable/ic_user_properties"
                     android:title="User Properties"/>
             </group>
         </menu>
@@ -109,31 +109,31 @@
                 android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_ab_testing"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:icon="@drawable/ic_ab_testing"
                     android:title="A/B Testing"/>
                 <item
                     android:id="@+id/nav_admob"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:icon="@drawable/ic_admob"
                     android:title="Admob"/>
                 <item
                     android:id="@+id/nav_cloud_messaging"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:icon="@drawable/ic_cloud_messaging"
                     android:title="Cloud Messaging"/>
                 <item
                     android:id="@+id/nav_dynamic_links"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:icon="@drawable/ic_dynamic_links"
                     android:title="Dynamic Links"/>
                 <item
                     android:id="@+id/nav_in_app_messaging"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:icon="@drawable/ic_in_app_messaging"
                     android:title="In-App Messaging"/>
                 <item
                     android:id="@+id/nav_predictions"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:icon="@drawable/ic_predictions"
                     android:title="Predictions"/>
                 <item
                     android:id="@+id/nav_remote_config"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:icon="@drawable/ic_remote_config"
                     android:title="Remote Config"/>
             </group>
         </menu>
@@ -144,9 +144,13 @@
             <group android:id="@+id/group_links"
                 android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_blog"
-                    android:icon="@drawable/ic_menu_camera"
+                    android:id="@+id/nav_tutorial"
+                    android:icon="@drawable/ic_tutorial"
                     android:title="View Tutorial" />
+                <item
+                    android:id="@+id/nav_about"
+                    android:icon="@drawable/ic_about"
+                    android:title="About App" />
             </group>
         </menu>
     </item>
