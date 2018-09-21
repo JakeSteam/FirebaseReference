@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:title="Develop">
+        <menu>
+            <group android:id="@+id/group_develop"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_authentication"
+                    android:icon="@drawable/ic_authentication"
+                    android:title="Authentication"/>
+                <item
+                    android:id="@+id/nav_database"
+                    android:icon="@drawable/ic_database"
+                    android:title="Database"/>
+                <item
+                    android:id="@+id/nav_functions"
+                    android:icon="@drawable/ic_functions"
+                    android:title="Functions"/>
+                <item
+                    android:id="@+id/nav_hosting"
+                    android:icon="@drawable/ic_hosting"
+                    android:title="Hosting"/>
+                <item
+                    android:id="@+id/nav_ml_kit"
+                    android:icon="@drawable/ic_ml_kit"
+                    android:title="ML Kit"/>
+                <item
+                    android:id="@+id/nav_storage"
+                    android:icon="@drawable/ic_storage"
+                    android:title="Storage"/>
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Quality">
+        <menu>
+            <group android:id="@+id/group_quality"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_crashlytics"
+                    android:icon="@drawable/ic_crashlytics"
+                    android:title="Crashlytics"/>
+                <item
+                    android:id="@+id/nav_performance"
+                    android:icon="@drawable/ic_performance"
+                    android:title="Performance"/>
+                <item
+                    android:id="@+id/nav_test_lab"
+                    android:icon="@drawable/ic_test_lab"
+                    android:title="Test Lab"/>
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Analytics">
+        <menu>
+            <group android:id="@+id/group_analytics"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_audiences"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="Audiences"/>
+                <item
+                    android:id="@+id/nav_conversions"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="Conversions"/>
+                <item
+                    android:id="@+id/nav_dashboard"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="Dashboard"/>
+                <item
+                    android:id="@+id/nav_debugview"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="DebugView"/>
+                <item
+                    android:id="@+id/nav_events"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="Events"/>
+                <item
+                    android:id="@+id/nav_funnels"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="Funnels"/>
+                <item
+                    android:id="@+id/nav_latest_release"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="Latest Release"/>
+                <item
+                    android:id="@+id/nav_retention"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="Retention"/>
+                <item
+                    android:id="@+id/nav_streamview"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="StreamView"/>
+                <item
+                    android:id="@+id/nav_user_properties"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="User Properties"/>
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Grow">
+        <menu>
+            <group android:id="@+id/group_grow"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_ab_testing"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="A/B Testing"/>
+                <item
+                    android:id="@+id/nav_admob"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="Admob"/>
+                <item
+                    android:id="@+id/nav_cloud_messaging"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="Cloud Messaging"/>
+                <item
+                    android:id="@+id/nav_dynamic_links"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="Dynamic Links"/>
+                <item
+                    android:id="@+id/nav_in_app_messaging"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="In-App Messaging"/>
+                <item
+                    android:id="@+id/nav_predictions"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="Predictions"/>
+                <item
+                    android:id="@+id/nav_remote_config"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="Remote Config"/>
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Links">
+        <menu>
+            <group android:id="@+id/group_links"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_blog"
+                    android:icon="@drawable/ic_menu_camera"
+                    android:title="View Tutorial" />
+            </group>
+        </menu>
+    </item>
+
+
+
+</menu>
