@@ -10,7 +10,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.toolbar.*
 import uk.co.jakelee.firebasereference.analytics.audiences.AudiencesFragment
 import uk.co.jakelee.firebasereference.analytics.conversions.ConversionsFragment
 import uk.co.jakelee.firebasereference.analytics.dashboard.DashboardFragment
