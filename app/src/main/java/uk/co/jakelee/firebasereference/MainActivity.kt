@@ -9,6 +9,7 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
 import uk.co.jakelee.firebasereference.analytics.audiences.AudiencesFragment
@@ -46,11 +47,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        setupDrawer()
+        setupNavigationView()
+        displayFragment(HomeFragment())
+    }
+
+    private fun setupDrawer() {
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
+    }
 
+    private fun setupNavigationView() {
+        nav_view.getHeaderView(0).findViewById<TextView>(R.id.blogUrl).setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.blog_url))))
+        }
         nav_view.setNavigationItemSelectedListener(this)
     }
 
@@ -65,6 +77,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
+            R.id.nav_home -> { displayFragment(HomeFragment()) }
             R.id.nav_authentication -> { displayFragment(AuthenticationFragment()) }
             R.id.nav_database -> { displayFragment(DatabaseFragment()) }
             R.id.nav_functions -> { displayFragment(FunctionsFragment()) }
@@ -91,10 +104,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_in_app_messaging -> { displayFragment(InAppMessagingFragment()) }
             R.id.nav_predictions -> { displayFragment(PredictionsFragment()) }
             R.id.nav_remote_config -> { displayFragment(RemoteConfigFragment()) }
-            R.id.nav_tutorial -> {
-                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://blog.jakelee.co.uk/tag/firebase")))
-            }
-            R.id.nav_about -> { displayFragment(AboutFragment()) }
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)

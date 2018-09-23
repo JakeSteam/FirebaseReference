@@ -3,6 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/title_home"/>
+
     <item android:title="@string/group_develop">
         <menu>
             <group android:id="@+id/group_develop"
@@ -135,22 +140,6 @@
                     android:id="@+id/nav_remote_config"
                     android:icon="@drawable/ic_remote_config"
                     android:title="@string/title_remote_config"/>
-            </group>
-        </menu>
-    </item>
-
-    <item android:title="@string/group_links">
-        <menu>
-            <group android:id="@+id/group_links"
-                android:checkableBehavior="single">
-                <item
-                    android:id="@+id/nav_tutorial"
-                    android:icon="@drawable/ic_tutorial"
-                    android:title="@string/title_tutorial" />
-                <item
-                    android:id="@+id/nav_about"
-                    android:icon="@drawable/ic_about"
-                    android:title="@string/title_about" />
             </group>
         </menu>
     </item>
