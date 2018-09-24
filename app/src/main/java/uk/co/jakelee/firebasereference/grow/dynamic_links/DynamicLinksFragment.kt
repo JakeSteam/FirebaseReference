@@ -2,14 +2,16 @@ package uk.co.jakelee.firebasereference.grow.dynamic_links
 
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import uk.co.jakelee.firebasereference.BaseFirebaseFragment
 import uk.co.jakelee.firebasereference.R
 
-class DynamicLinksFragment : Fragment() {
+class DynamicLinksFragment : BaseFirebaseFragment() {
+    override val title = R.string.app_name
+    override val tutorialUrl = 0
+    override val docsUrl = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
