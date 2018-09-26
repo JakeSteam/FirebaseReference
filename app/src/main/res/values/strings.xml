@@ -35,37 +35,44 @@
     <string name="title_in_app_messaging">In-App Messaging</string>
     <string name="title_predictions">Predictions</string>
     <string name="title_remote_config">Remote Config</string>
+
+    <string name="title_cloud_firestore">Cloud Firestore</string>
+    <string name="title_invites">Invites</string>
+    <string name="title_app_indexing">App Indexing</string>
     <string name="title_tutorial">Full Tutorial</string>
     <string name="title_documentation">Documentation</string>
     <string name="title_firebase">Firebase</string>
 
     <string name="tutorial_home">https://blog.jakelee.co.uk</string>
-    <string name="tutorial_authentication" />
-    <string name="tutorial_database" />
-    <string name="tutorial_functions" />
-    <string name="tutorial_hosting" />
-    <string name="tutorial_ml_kit" />
-    <string name="tutorial_storage" />
-    <string name="tutorial_crashlytics" />
-    <string name="tutorial_performance" />
-    <string name="tutorial_test_lab" />
-    <string name="tutorial_audiences" />
-    <string name="tutorial_conversions" />
-    <string name="tutorial_dashboard" />
-    <string name="tutorial_debugview" />
-    <string name="tutorial_events" />
-    <string name="tutorial_funnels" />
-    <string name="tutorial_latest_release" />
-    <string name="tutorial_retention" />
-    <string name="tutorial_streamview" />
-    <string name="tutorial_user_properties" />
-    <string name="tutorial_ab_testing" />
-    <string name="tutorial_admob" />
-    <string name="tutorial_cloud_messaging" />
-    <string name="tutorial_dynamic_links" />
-    <string name="tutorial_in_app_messaging" />
-    <string name="tutorial_predictions" />
-    <string name="tutorial_remote_config" />
+    <string name="tutorial_authentication"></string>
+    <string name="tutorial_database"></string>
+    <string name="tutorial_functions"></string>
+    <string name="tutorial_hosting"></string>
+    <string name="tutorial_ml_kit"></string>
+    <string name="tutorial_storage"></string>
+    <string name="tutorial_crashlytics"></string>
+    <string name="tutorial_performance"></string>
+    <string name="tutorial_test_lab"></string>
+    <string name="tutorial_audiences"></string>
+    <string name="tutorial_conversions"></string>
+    <string name="tutorial_dashboard"></string>
+    <string name="tutorial_debugview"></string>
+    <string name="tutorial_events"></string>
+    <string name="tutorial_funnels"></string>
+    <string name="tutorial_latest_release"></string>
+    <string name="tutorial_retention"></string>
+    <string name="tutorial_streamview"></string>
+    <string name="tutorial_user_properties"></string>
+    <string name="tutorial_ab_testing"></string>
+    <string name="tutorial_admob"></string>
+    <string name="tutorial_cloud_messaging"></string>
+    <string name="tutorial_dynamic_links"></string>
+    <string name="tutorial_in_app_messaging"></string>
+    <string name="tutorial_predictions"></string>
+    <string name="tutorial_remote_config"></string>
+    <string name="tutorial_cloud_firestore"></string>
+    <string name="tutorial_app_indexing"></string>
+    <string name="tutorial_invites"></string>
 
     <string name="documentation_home">About</string>
     <string name="documentation_authentication">https://firebase.google.com/docs/auth/</string>
@@ -94,6 +101,10 @@
     <string name="documentation_in_app_messaging">https://firebase.google.com/docs/in-app-messaging/</string>
     <string name="documentation_predictions">https://firebase.google.com/docs/predictions/</string>
     <string name="documentation_remote_config">https://firebase.google.com/docs/remote-config/</string>
+    <string name="documentation_app_indexing">https://firebase.google.com/docs/app-indexing/</string>
+    <string name="documentation_invites">https://firebase.google.com/docs/invites/</string>
+    <string name="documentation_cloud_firestore">https://firebase.google.com/docs/firestore/</string>
+
 
     <string name="firebase_home">https://console.firebase.google.com/project/_/overview</string>
     <string name="firebase_authentication">https://console.firebase.google.com/u/0/project/_/authentication/users</string>
@@ -122,4 +133,7 @@
     <string name="firebase_in_app_messaging">https://console.firebase.google.com/project/_/inappmessaging/onboarding</string>
     <string name="firebase_predictions">https://console.firebase.google.com/project/_/growth</string>
     <string name="firebase_remote_config">https://console.firebase.google.com/project/_/config</string>
+    <string name="firebase_app_indexing">https://console.firebase.google.com/project/_/overview</string>
+    <string name="firebase_invites">https://console.firebase.google.com/project/_/overview</string>
+    <string name="firebase_cloud_firestore">https://console.firebase.google.com/project/_/overview</string>
 </resources>

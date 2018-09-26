@@ -17,6 +17,10 @@
                     android:icon="@drawable/ic_authentication"
                     android:title="@string/title_authentication"/>
                 <item
+                    android:id="@+id/nav_cloud_firestore"
+                    android:icon="@drawable/ic_cloud_firestore"
+                    android:title="@string/title_cloud_firestore"/>
+                <item
                     android:id="@+id/nav_database"
                     android:icon="@drawable/ic_database"
                     android:title="@string/title_database"/>
@@ -28,6 +32,10 @@
                     android:id="@+id/nav_hosting"
                     android:icon="@drawable/ic_hosting"
                     android:title="@string/title_hosting"/>
+                <item
+                    android:id="@+id/nav_invites"
+                    android:icon="@drawable/ic_invites"
+                    android:title="@string/title_invites"/>
                 <item
                     android:id="@+id/nav_ml_kit"
                     android:icon="@drawable/ic_ml_kit"
@@ -120,6 +128,10 @@
                     android:id="@+id/nav_admob"
                     android:icon="@drawable/ic_admob"
                     android:title="@string/title_admob"/>
+                <item
+                    android:id="@+id/nav_app_indexing"
+                    android:icon="@drawable/ic_app_indexing"
+                    android:title="@string/title_app_indexing"/>
                 <item
                     android:id="@+id/nav_cloud_messaging"
                     android:icon="@drawable/ic_cloud_messaging"
