@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -74,8 +75,21 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val fragment = supportFragmentManager.fragments[0] as BaseFirebaseFragment
+        when (item.itemId) {
+            R.id.nav_tutorial -> { fragment.openTutorial() }
+            R.id.nav_documentation -> { fragment.openDocs() }
+        }
+        return true
+    }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_home -> { displayFragment(HomeFragment()) }
             R.id.nav_authentication -> { displayFragment(AuthenticationFragment()) }
@@ -112,6 +126,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun displayFragment(fragment: Fragment) {
         val ft = supportFragmentManager.beginTransaction()
-        ft.replace(R.id.mainFrame, fragment).commit()
+        ft.replace(R.id.mainFrame, fragment, "ACTIVE_FRAGMENT").commit()
     }
 }

@@ -35,4 +35,6 @@
     <string name="title_in_app_messaging">In-App Messaging</string>
     <string name="title_predictions">Predictions</string>
     <string name="title_remote_config">Remote Config</string>
+    <string name="title_tutorial">Full Tutorial</string>
+    <string name="title_documentation">Documentation</string>
 </resources>

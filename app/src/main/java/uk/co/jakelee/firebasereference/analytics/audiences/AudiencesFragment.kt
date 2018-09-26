@@ -9,7 +9,7 @@ import uk.co.jakelee.firebasereference.BaseFirebaseFragment
 import uk.co.jakelee.firebasereference.R
 
 class AudiencesFragment : BaseFirebaseFragment() {
-    override val title = R.string.app_name
+    override val title = R.string.title_audiences
     override val tutorialUrl = 0
     override val docsUrl = 0
 
