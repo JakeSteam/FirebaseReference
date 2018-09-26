@@ -9,9 +9,10 @@ import uk.co.jakelee.firebasereference.BaseFirebaseFragment
 import uk.co.jakelee.firebasereference.R
 
 class EventsFragment : BaseFirebaseFragment() {
-    override val title = R.string.app_name
-    override val tutorialUrl = 0
-    override val docsUrl = 0
+    override val title = R.string.title_events
+    override val tutorialUrl = R.string.tutorial_events
+    override val docsUrl = R.string.documentation_events
+    override val firebaseUrl = R.string.firebase_events
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

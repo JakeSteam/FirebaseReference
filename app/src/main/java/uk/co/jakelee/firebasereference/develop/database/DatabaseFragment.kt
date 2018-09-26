@@ -9,9 +9,10 @@ import uk.co.jakelee.firebasereference.BaseFirebaseFragment
 import uk.co.jakelee.firebasereference.R
 
 class DatabaseFragment : BaseFirebaseFragment() {
-    override val title = R.string.app_name
-    override val tutorialUrl = 0
-    override val docsUrl = 0
+    override val title = R.string.title_database
+    override val tutorialUrl = R.string.tutorial_database
+    override val docsUrl = R.string.documentation_database
+    override val firebaseUrl = R.string.firebase_database
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

@@ -9,9 +9,10 @@ import uk.co.jakelee.firebasereference.BaseFirebaseFragment
 import uk.co.jakelee.firebasereference.R
 
 class CrashlyticsFragment : BaseFirebaseFragment() {
-    override val title = R.string.app_name
-    override val tutorialUrl = 0
-    override val docsUrl = 0
+    override val title = R.string.title_crashlytics
+    override val tutorialUrl = R.string.tutorial_crashlytics
+    override val docsUrl = R.string.documentation_crashlytics
+    override val firebaseUrl = R.string.firebase_crashlytics
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

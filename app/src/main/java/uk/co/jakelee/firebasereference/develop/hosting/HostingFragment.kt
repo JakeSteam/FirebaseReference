@@ -9,9 +9,10 @@ import uk.co.jakelee.firebasereference.BaseFirebaseFragment
 import uk.co.jakelee.firebasereference.R
 
 class HostingFragment : BaseFirebaseFragment() {
-    override val title = R.string.app_name
-    override val tutorialUrl = 0
-    override val docsUrl = 0
+    override val title = R.string.title_hosting
+    override val tutorialUrl = R.string.tutorial_hosting
+    override val docsUrl = R.string.documentation_hosting
+    override val firebaseUrl = R.string.firebase_hosting
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

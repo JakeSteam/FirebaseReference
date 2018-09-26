@@ -10,6 +10,7 @@ abstract class BaseFirebaseFragment : Fragment() {
     abstract val title: Int
     abstract val tutorialUrl: Int
     abstract val docsUrl: Int
+    abstract val firebaseUrl: Int
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +22,7 @@ abstract class BaseFirebaseFragment : Fragment() {
     }
 
     fun openTutorial() {
-        if (tutorialUrl > 0) {
+        if (tutorialUrl > 0 && getString(tutorialUrl).isNotEmpty()) {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(getString(tutorialUrl))))
         } else {
             Toast.makeText(activity!!, "Couldn't find a tutorial URL to open!", Toast.LENGTH_SHORT).show()
@@ -29,10 +30,18 @@ abstract class BaseFirebaseFragment : Fragment() {
     }
 
     fun openDocs() {
-        if (docsUrl > 0) {
+        if (docsUrl > 0 && getString(docsUrl).isNotEmpty()) {
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(getString(docsUrl))))
         } else {
             Toast.makeText(activity!!, "Couldn't find a documentation URL to open!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    fun openFirebase() {
+        if (firebaseUrl > 0 && getString(firebaseUrl).isNotEmpty()) {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(getString(firebaseUrl))))
+        } else {
+            Toast.makeText(activity!!, "Couldn't find a firebase URL to open!", Toast.LENGTH_SHORT).show()
         }
     }
 }

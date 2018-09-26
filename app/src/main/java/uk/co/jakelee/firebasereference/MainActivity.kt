@@ -83,41 +83,42 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val fragment = supportFragmentManager.fragments[0] as BaseFirebaseFragment
         when (item.itemId) {
-            R.id.nav_tutorial -> { fragment.openTutorial() }
-            R.id.nav_documentation -> { fragment.openDocs() }
+            R.id.nav_tutorial -> fragment.openTutorial()
+            R.id.nav_documentation -> fragment.openDocs()
+            R.id.nav_firebase -> fragment.openFirebase()
         }
         return true
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_home -> { displayFragment(HomeFragment()) }
-            R.id.nav_authentication -> { displayFragment(AuthenticationFragment()) }
-            R.id.nav_database -> { displayFragment(DatabaseFragment()) }
-            R.id.nav_functions -> { displayFragment(FunctionsFragment()) }
-            R.id.nav_hosting -> { displayFragment(HostingFragment()) }
-            R.id.nav_ml_kit -> { displayFragment(MLKitFragment()) }
-            R.id.nav_storage -> { displayFragment(StorageFragment()) }
-            R.id.nav_crashlytics -> { displayFragment(CrashlyticsFragment()) }
-            R.id.nav_performance -> { displayFragment(PerformanceFragment()) }
-            R.id.nav_test_lab -> { displayFragment(TestLabFragment()) }
-            R.id.nav_audiences -> { displayFragment(AudiencesFragment()) }
-            R.id.nav_conversions -> { displayFragment(ConversionsFragment()) }
-            R.id.nav_dashboard -> { displayFragment(DashboardFragment()) }
-            R.id.nav_debugview -> { displayFragment(DebugViewFragment()) }
-            R.id.nav_events -> { displayFragment(EventsFragment()) }
-            R.id.nav_funnels -> { displayFragment(FunnelsFragment()) }
-            R.id.nav_latest_release -> { displayFragment(LatestReleaseFragment()) }
-            R.id.nav_retention -> { displayFragment(RetentionFragment()) }
-            R.id.nav_streamview -> { displayFragment(StreamViewFragment()) }
-            R.id.nav_user_properties -> { displayFragment(UserPropertiesFragment()) }
-            R.id.nav_ab_testing -> { displayFragment(ABTestingFragment()) }
-            R.id.nav_admob -> { displayFragment(AdmobFragment()) }
-            R.id.nav_cloud_messaging -> { displayFragment(CloudMessagingFragment()) }
-            R.id.nav_dynamic_links -> { displayFragment(DynamicLinksFragment()) }
-            R.id.nav_in_app_messaging -> { displayFragment(InAppMessagingFragment()) }
-            R.id.nav_predictions -> { displayFragment(PredictionsFragment()) }
-            R.id.nav_remote_config -> { displayFragment(RemoteConfigFragment()) }
+            R.id.nav_home -> displayFragment(HomeFragment())
+            R.id.nav_authentication -> displayFragment(AuthenticationFragment())
+            R.id.nav_database -> displayFragment(DatabaseFragment())
+            R.id.nav_functions -> displayFragment(FunctionsFragment())
+            R.id.nav_hosting -> displayFragment(HostingFragment())
+            R.id.nav_ml_kit -> displayFragment(MLKitFragment())
+            R.id.nav_storage -> displayFragment(StorageFragment())
+            R.id.nav_crashlytics -> displayFragment(CrashlyticsFragment())
+            R.id.nav_performance -> displayFragment(PerformanceFragment())
+            R.id.nav_test_lab -> displayFragment(TestLabFragment())
+            R.id.nav_audiences -> displayFragment(AudiencesFragment())
+            R.id.nav_conversions -> displayFragment(ConversionsFragment())
+            R.id.nav_dashboard -> displayFragment(DashboardFragment())
+            R.id.nav_debugview -> displayFragment(DebugViewFragment())
+            R.id.nav_events -> displayFragment(EventsFragment())
+            R.id.nav_funnels -> displayFragment(FunnelsFragment())
+            R.id.nav_latest_release -> displayFragment(LatestReleaseFragment())
+            R.id.nav_retention -> displayFragment(RetentionFragment())
+            R.id.nav_streamview -> displayFragment(StreamViewFragment())
+            R.id.nav_user_properties -> displayFragment(UserPropertiesFragment())
+            R.id.nav_ab_testing -> displayFragment(ABTestingFragment())
+            R.id.nav_admob -> displayFragment(AdmobFragment())
+            R.id.nav_cloud_messaging -> displayFragment(CloudMessagingFragment())
+            R.id.nav_dynamic_links -> displayFragment(DynamicLinksFragment())
+            R.id.nav_in_app_messaging -> displayFragment(InAppMessagingFragment())
+            R.id.nav_predictions -> displayFragment(PredictionsFragment())
+            R.id.nav_remote_config -> displayFragment(RemoteConfigFragment())
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)

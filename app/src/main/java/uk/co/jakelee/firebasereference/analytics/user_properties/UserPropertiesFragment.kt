@@ -9,9 +9,10 @@ import uk.co.jakelee.firebasereference.BaseFirebaseFragment
 import uk.co.jakelee.firebasereference.R
 
 class UserPropertiesFragment : BaseFirebaseFragment() {
-    override val title = R.string.app_name
-    override val tutorialUrl = 0
-    override val docsUrl = 0
+    override val title = R.string.title_user_properties
+    override val tutorialUrl = R.string.tutorial_user_properties
+    override val docsUrl = R.string.documentation_user_properties
+    override val firebaseUrl = R.string.firebase_user_properties
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

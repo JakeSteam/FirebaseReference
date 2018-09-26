@@ -9,9 +9,10 @@ import uk.co.jakelee.firebasereference.BaseFirebaseFragment
 import uk.co.jakelee.firebasereference.R
 
 class InAppMessagingFragment : BaseFirebaseFragment() {
-    override val title = R.string.app_name
-    override val tutorialUrl = 0
-    override val docsUrl = 0
+    override val title = R.string.title_in_app_messaging
+    override val tutorialUrl = R.string.tutorial_in_app_messaging
+    override val docsUrl = R.string.documentation_in_app_messaging
+    override val firebaseUrl = R.string.firebase_in_app_messaging
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

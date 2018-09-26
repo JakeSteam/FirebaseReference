@@ -9,10 +9,11 @@ import uk.co.jakelee.firebasereference.BaseFirebaseFragment
 import uk.co.jakelee.firebasereference.R
 
 class ABTestingFragment : BaseFirebaseFragment() {
-    override val title = R.string.app_name
-    override val tutorialUrl = 0
-    override val docsUrl = 0
-
+    override val title = R.string.title_ab_testing
+    override val tutorialUrl = R.string.tutorial_ab_testing
+    override val docsUrl = R.string.documentation_ab_testing
+    override val firebaseUrl = R.string.firebase_ab_testing
+    
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
