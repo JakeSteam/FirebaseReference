@@ -16,7 +16,6 @@ import com.google.firebase.auth.UserInfo
 import kotlinx.android.synthetic.main.fragment_develop_authentication.*
 import uk.co.jakelee.firebasereference.BaseFirebaseFragment
 import uk.co.jakelee.firebasereference.R
-import java.util.*
 
 
 class AuthenticationFragment : BaseFirebaseFragment() {
@@ -39,32 +38,26 @@ class AuthenticationFragment : BaseFirebaseFragment() {
         logoutButton.setOnClickListener { clickLogout() }
     }
 
-    private fun clickLogin() {
-        val providers = Arrays.asList(
-                AuthUI.IdpConfig.EmailBuilder().build(),
-                AuthUI.IdpConfig.GoogleBuilder().build())
-        startActivityForResult(
-                AuthUI.getInstance()
-                        .createSignInIntentBuilder()
-                        .setAvailableProviders(providers)
-                        .build(), REQUEST_CODE)
-    }
+    private fun clickLogin() = startActivityForResult(
+            AuthUI.getInstance()
+                    .createSignInIntentBuilder()
+                    .setAvailableProviders(listOf(
+                            AuthUI.IdpConfig.EmailBuilder().build(),
+                            AuthUI.IdpConfig.GoogleBuilder().build()))
+                    .build(), REQUEST_CODE)
 
-    private fun clickCustomLogin() {
-        val providers = Arrays.asList(
-                AuthUI.IdpConfig.EmailBuilder().build(),
-                AuthUI.IdpConfig.GoogleBuilder().build())
-        startActivityForResult(
-                AuthUI.getInstance()
-                        .createSignInIntentBuilder()
-                        .setAvailableProviders(providers)
-                        .setLogo(R.drawable.ic_authentication)
-                        .setTheme(R.style.AuthenticationCustomTheme)
-                        .setTosAndPrivacyPolicyUrls(
-                                "https://google.com",
-                                "https://firebase.google.com")
-                        .build(), REQUEST_CODE)
-    }
+    private fun clickCustomLogin() = startActivityForResult(
+            AuthUI.getInstance()
+                    .createSignInIntentBuilder()
+                    .setAvailableProviders(listOf(
+                            AuthUI.IdpConfig.EmailBuilder().build(),
+                            AuthUI.IdpConfig.GoogleBuilder().build()))
+                    .setLogo(R.drawable.ic_authentication)
+                    .setTheme(R.style.AuthenticationCustomTheme)
+                    .setTosAndPrivacyPolicyUrls(
+                            "https://google.com",
+                            "https://firebase.google.com")
+                    .build(), REQUEST_CODE)
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -105,18 +98,14 @@ class AuthenticationFragment : BaseFirebaseFragment() {
                 user.metadata?.lastSignInTimestamp)
 
 
-    private fun clickLogout() {
-        AuthUI.getInstance()
+    private fun clickLogout() =
+            AuthUI.getInstance()
                 .signOut(activity!!)
                 .addOnCompleteListener {
                     loginButton.isEnabled = true
                     customLoginButton.isEnabled = true
                     logoutButton.isEnabled = false
                     loggedInData.text = ""
-                    Toast.makeText(activity!!, "Logged out!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity!!, getString(R.string.authentication_logged_out), Toast.LENGTH_SHORT).show()
                 }
-    }
-
-
-
 }
