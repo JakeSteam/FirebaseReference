@@ -16,6 +16,8 @@ import com.google.firebase.auth.UserInfo
 import kotlinx.android.synthetic.main.fragment_develop_authentication.*
 import uk.co.jakelee.firebasereference.BaseFirebaseFragment
 import uk.co.jakelee.firebasereference.R
+import java.text.DateFormat
+import java.util.*
 
 
 class AuthenticationFragment : BaseFirebaseFragment() {
@@ -52,7 +54,7 @@ class AuthenticationFragment : BaseFirebaseFragment() {
                     .setAvailableProviders(listOf(
                             AuthUI.IdpConfig.EmailBuilder().build(),
                             AuthUI.IdpConfig.GoogleBuilder().build()))
-                    .setLogo(R.drawable.ic_authentication)
+                    .setLogo(R.drawable.ic_firebase)
                     .setTheme(R.style.AuthenticationCustomTheme)
                     .setTosAndPrivacyPolicyUrls(
                             "https://google.com",
@@ -86,26 +88,29 @@ class AuthenticationFragment : BaseFirebaseFragment() {
 
     private fun extractProviderData(userInfo: UserInfo) =
             String.format(getString(R.string.authentication_logged_in_provider),
-                userInfo.providerId,
-                userInfo.uid,
-                userInfo.displayName,
-                userInfo.email,
-                userInfo.photoUrl)
+                    userInfo.providerId,
+                    userInfo.uid,
+                    userInfo.displayName,
+                    userInfo.email,
+                    userInfo.photoUrl)
 
     private fun extractUserDates(user: FirebaseUser) =
             String.format(getString(R.string.authentication_logged_in_dates),
-                user.metadata?.creationTimestamp,
-                user.metadata?.lastSignInTimestamp)
+                    user.metadata?.creationTimestamp?.toTimeString(),
+                    user.metadata?.lastSignInTimestamp?.toTimeString())
+
+    private fun Long.toTimeString() =
+            DateFormat.getDateTimeInstance().format(Date(this))
 
 
     private fun clickLogout() =
             AuthUI.getInstance()
-                .signOut(activity!!)
-                .addOnCompleteListener {
-                    loginButton.isEnabled = true
-                    customLoginButton.isEnabled = true
-                    logoutButton.isEnabled = false
-                    loggedInData.text = ""
-                    Toast.makeText(activity!!, getString(R.string.authentication_logged_out), Toast.LENGTH_SHORT).show()
-                }
+                    .signOut(activity!!)
+                    .addOnCompleteListener {
+                        loginButton.isEnabled = true
+                        customLoginButton.isEnabled = true
+                        logoutButton.isEnabled = false
+                        loggedInData.text = ""
+                        Toast.makeText(activity!!, getString(R.string.authentication_logged_out), Toast.LENGTH_SHORT).show()
+                    }
 }
