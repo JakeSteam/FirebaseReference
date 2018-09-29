@@ -105,7 +105,6 @@
     <string name="documentation_invites">https://firebase.google.com/docs/invites/</string>
     <string name="documentation_cloud_firestore">https://firebase.google.com/docs/firestore/</string>
 
-
     <string name="firebase_home">https://console.firebase.google.com/project/_/overview</string>
     <string name="firebase_authentication">https://console.firebase.google.com/u/0/project/_/authentication/users</string>
     <string name="firebase_database">https://console.firebase.google.com/project/_/database</string>
@@ -136,4 +135,13 @@
     <string name="firebase_app_indexing">https://console.firebase.google.com/project/_/overview</string>
     <string name="firebase_invites">https://console.firebase.google.com/project/_/overview</string>
     <string name="firebase_cloud_firestore">https://console.firebase.google.com/project/_/overview</string>
+
+    <string name="authentication_login">Login</string>
+    <string name="authentication_login_custom">Custom Login</string>
+    <string name="authentication_logout">Logout</string>
+    <string name="authentication_logged_in_provider">Provider: %1$s \nID: %2$s \nName: %3$s \nEmail: %4$s \nPhoto: %5$s\n\n</string>
+    <string name="authentication_logged_in_dates">Created: %1$s\nSigned in: %2$s \n</string>
+    <string name="authentication_logged_in">Logged in!</string>
+    <string name="authentication_login_error">Error %1$s occurred: %2$s</string>
+    <string name="authentication_logged_out">Logged out!</string>
 </resources>

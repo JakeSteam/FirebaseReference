@@ -12,6 +12,12 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AuthenticationCustomTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#09a02c</item>
+        <item name="colorPrimaryDark">#467573</item>
+        <item name="colorAccent">#073a79</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
