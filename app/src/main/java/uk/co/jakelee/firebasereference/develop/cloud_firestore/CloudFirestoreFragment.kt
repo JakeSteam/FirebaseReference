@@ -7,12 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.fragment_develop_cloud_firestore.*
 import uk.co.jakelee.firebasereference.BaseFirebaseFragment
 import uk.co.jakelee.firebasereference.R
 import java.util.*
-
-
-
 
 class CloudFirestoreFragment : BaseFirebaseFragment() {
     override val title = R.string.title_cloud_firestore
@@ -30,7 +28,16 @@ class CloudFirestoreFragment : BaseFirebaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setOnclicks()
         updateRowList()
+    }
+
+    private fun setOnclicks() {
+        updateButton.setOnClickListener { updateRowList() }
+        addAutomaticButton.setOnClickListener { addImplicitDocument() }
+        addManualButton.setOnClickListener { addExplicitDocument() }
+        editButton.setOnClickListener { updateRow() }
+        deleteButton.setOnClickListener { deleteRow() }
     }
 
     private fun updateRowList() {
@@ -42,9 +49,10 @@ class CloudFirestoreFragment : BaseFirebaseFragment() {
                         for (document in task.result!!) {
                             text += "${document.id}\t${document.data["number"]}\t${document.data["added"]}"
                         }
-                        // Update textview
+                        tableContents.text = text
                     } else {
                         showToast("Error getting documents: ${task.exception}")
+                        tableContents.text = ""
                     }
                 }
     }
@@ -76,7 +84,8 @@ class CloudFirestoreFragment : BaseFirebaseFragment() {
     }
 
     private fun updateRow() {
-
+        // get row
+        // change row (add 1 to number, change updated)
     }
 
     private fun deleteRow() {
