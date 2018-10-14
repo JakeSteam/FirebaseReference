@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.fragment_develop_cloud_firestore.*
 import uk.co.jakelee.firebasereference.BaseFirebaseFragment
 import uk.co.jakelee.firebasereference.R
-import java.text.SimpleDateFormat
 import java.util.*
 
 class CloudFirestoreFragment : BaseFirebaseFragment() {
@@ -38,82 +38,97 @@ class CloudFirestoreFragment : BaseFirebaseFragment() {
 
 
     private fun setOnclicks() {
-        fetchButton.setOnClickListener { fetchRows() }
+        fetchButton.setOnClickListener { fetchFilteredRows() }
         addAutomaticButton.setOnClickListener { addImplicitDocument() }
         addManualButton.setOnClickListener { addExplicitDocument() }
         editButton.setOnClickListener { editAllRows() }
         deleteButton.setOnClickListener { deleteRow() }
+        deleteAllButton.setOnClickListener { deleteAllRows() }
     }
 
-    private fun fetchRows() = db.collection(tableName)
-                .get()
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        displayDocuments(task.result?.documents!!)
-                    } else {
-                        showToast("Error getting documents: ${task.exception}")
-                        tableContents.text = ""
-                    }
+    private fun fetchFilteredRows() = db.collection(tableName)
+            .orderBy("number", Query.Direction.DESCENDING)
+            .limit(3)
+            .get()
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    displayDocuments(task.result?.documents!!)
+                } else {
+                    showToast("Error getting documents: ${task.exception}")
+                    tableContents.text = ""
                 }
+            }
 
     private fun addImplicitDocument() = db.collection(tableName)
-                .add(generateDocument())
-                .addOnSuccessListener { documentReference ->
-                    showToast("DocumentSnapshot added with ID: ${documentReference.id}")
-                }
-                .addOnFailureListener { e ->
-                    showToast("Error adding document: $e")
-                }
+            .add(generateDocument())
+            .addOnSuccessListener { documentReference ->
+                showToast("DocumentSnapshot added with ID: ${documentReference.id}")
+            }
+            .addOnFailureListener { e ->
+                showToast("Error adding document: $e")
+            }
 
     private fun addExplicitDocument() {
         val id = (1..100000).shuffled().first().toString()
         db.collection(tableName).document(id)
-                .set(generateDocument())
-                .addOnSuccessListener {
-                    showToast("DocumentSnapshot added with ID: $id")
-                }
-                .addOnFailureListener { e ->
-                    showToast("Error writing document: $e")
-                }
+            .set(generateDocument())
+            .addOnSuccessListener {
+                showToast("DocumentSnapshot added with ID: $id")
+            }
+            .addOnFailureListener { e ->
+                showToast("Error writing document: $e")
+            }
     }
 
     private fun editAllRows() = db.collection(tableName)
-                .get()
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        task.result!!.documents.forEach {
-                            val ref = db.collection(tableName).document(it.id)
-                            it.data?.let {
-                                ref.update("number", (it["number"] as Long) + 1)
-                            }
+            .get()
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    task.result!!.documents.forEach {
+                        val ref = db.collection(tableName).document(it.id)
+                        it.data?.let {
+                            ref.update("number", (it["number"] as Long) + 1)
                         }
-                    } else {
-                        showToast("Error getting documents: ${task.exception}")
-                        tableContents.text = ""
                     }
+                } else {
+                    showToast("Error getting documents: ${task.exception}")
+                    tableContents.text = ""
                 }
+            }
 
     private fun deleteRow() = db.collection(tableName)
-                .get()
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        task.result!!.documents[0]?.let {
-                            val ref = db.collection(tableName).document(it.id)
-                            ref.delete()
-                            showToast("DocumentSnapshot successfully deleted with ID: ${ref.id}")
-                        }
-                    } else {
-                        showToast("Error getting documents: ${task.exception}")
-                        tableContents.text = ""
+            .get()
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    task.result!!.documents[0]?.let {
+                        val ref = db.collection(tableName).document(it.id)
+                        ref.delete()
+                        showToast("DocumentSnapshot successfully deleted with ID: ${ref.id}")
                     }
+                } else {
+                    showToast("Error getting documents: ${task.exception}")
+                    tableContents.text = ""
                 }
+            }
 
-    private fun generateDocument(): HashMap<String, Any> {
-        val dateFormat = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
-        return hashMapOf(
+    private fun deleteAllRows() = db.collection(tableName)
+            .get()
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    task.result!!.documents.forEach {
+                        val ref = db.collection(tableName).document(it.id)
+                        ref.delete()
+                        showToast("DocumentSnapshot successfully deleted with ID: ${ref.id}")
+                    }
+                } else {
+                    showToast("Error getting documents: ${task.exception}")
+                    tableContents.text = ""
+                }
+            }
+
+    private fun generateDocument(): HashMap<String, Any> = hashMapOf(
                 "number" to (1..100).shuffled().first(),
-                "added" to dateFormat.format(Calendar.getInstance().time))
-    }
+                "added" to System.currentTimeMillis())
 
     private fun displayDocuments(t: List<DocumentSnapshot>) {
         var text = ""
