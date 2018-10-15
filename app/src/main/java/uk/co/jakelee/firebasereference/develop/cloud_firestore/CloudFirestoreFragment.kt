@@ -22,6 +22,7 @@ class CloudFirestoreFragment : BaseFirebaseFragment() {
 
     private val db = FirebaseFirestore.getInstance()
     private val tableName = "exampleTable"
+    private enum class Fields { NUMBER, ADDED }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -87,7 +88,7 @@ class CloudFirestoreFragment : BaseFirebaseFragment() {
                     task.result!!.documents.forEach {
                         val ref = db.collection(tableName).document(it.id)
                         it.data?.let {
-                            ref.update("number", (it["number"] as Long) + 1)
+                            ref.update(Fields.NUMBER.toString(), (it[Fields.NUMBER.toString()] as Long) + 1)
                         }
                     }
                 } else {
@@ -127,13 +128,13 @@ class CloudFirestoreFragment : BaseFirebaseFragment() {
             }
 
     private fun generateDocument(): HashMap<String, Any> = hashMapOf(
-                "number" to (1..100).shuffled().first(),
-                "added" to System.currentTimeMillis())
+                Fields.NUMBER.toString() to (1..100).shuffled().first(),
+                Fields.ADDED.toString() to System.currentTimeMillis())
 
     private fun displayDocuments(t: List<DocumentSnapshot>) {
         var text = ""
         for (document in t) {
-            text += "ID ${document.id} has number ${document.data!!["number"]}\n"
+            text += "ID ${document.id} has number ${document.data!![Fields.NUMBER.toString()]}\n"
         }
         tableContents.text = text
     }
