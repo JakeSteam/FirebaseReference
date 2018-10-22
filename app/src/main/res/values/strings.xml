@@ -70,7 +70,7 @@
     <string name="tutorial_in_app_messaging"></string>
     <string name="tutorial_predictions"></string>
     <string name="tutorial_remote_config"></string>
-    <string name="tutorial_cloud_firestore"></string>
+    <string name="tutorial_cloud_firestore">https://blog.jakelee.co.uk/2018/10/22/developing-android-apps-with-firebase-cloud-firestore/</string>
     <string name="tutorial_app_indexing"></string>
     <string name="tutorial_invites"></string>
 
