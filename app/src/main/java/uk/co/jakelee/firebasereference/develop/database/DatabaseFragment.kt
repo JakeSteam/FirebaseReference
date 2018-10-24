@@ -45,12 +45,26 @@ class DatabaseFragment : BaseFirebaseFragment() {
 
 
     private fun setOnclicks() {
-        addButton.setOnClickListener { addDocument() }
+        addButton.setOnClickListener { addUuid() }
+        editAllButton.setOnClickListener { editAllRows() }
         deleteAllButton.setOnClickListener { deleteAllRows() }
     }
 
-    private fun addDocument() = nestedData.child(java.util.UUID.randomUUID().toString())
+    private fun addUuid() = nestedData.child(java.util.UUID.randomUUID().toString())
             .setValue((1..1000).shuffled().first())
+
+    private fun editAllRows() = nestedData.addListenerForSingleValueEvent(object : ValueEventListener {
+        override fun onDataChange(dataSnapshot: DataSnapshot) {
+            for (postSnapshot in dataSnapshot.children) {
+                nestedData.child(postSnapshot.key.toString())
+                        .setValue("*${postSnapshot.value.toString()}")
+            }
+        }
+
+        override fun onCancelled(databaseError: DatabaseError) {
+            showToast(databaseError.toException().toString())
+        }
+    });
 
     private fun deleteAllRows() = nestedData.setValue("")
 
