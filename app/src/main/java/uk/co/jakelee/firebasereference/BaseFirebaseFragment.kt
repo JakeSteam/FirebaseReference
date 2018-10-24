@@ -44,4 +44,8 @@ abstract class BaseFirebaseFragment : Fragment() {
             Toast.makeText(activity!!, "Couldn't find a firebase URL to open!", Toast.LENGTH_SHORT).show()
         }
     }
+
+    fun showToast(text: String) {
+        Toast.makeText(activity, text, Toast.LENGTH_SHORT).show()
+    }
 }

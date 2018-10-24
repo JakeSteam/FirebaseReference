@@ -46,6 +46,9 @@ dependencies {
     // Firebase Cloud Firestore
     implementation 'com.google.firebase:firebase-firestore:17.1.1'
 
+    // Firebase Realtime Database
+    implementation 'com.google.firebase:firebase-database:16.0.3'
+
     // Testing
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
