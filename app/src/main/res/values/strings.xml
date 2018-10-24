@@ -151,4 +151,5 @@
     <string name="firestore_update">Edit all rows</string>
     <string name="firestore_delete">Delete row</string>
     <string name="firestore_delete_all">Delete all rows</string>
+    <string name="firestore_analyse">Analyse rows</string>
 </resources>

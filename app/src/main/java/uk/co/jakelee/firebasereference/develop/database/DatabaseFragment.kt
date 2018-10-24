@@ -45,30 +45,63 @@ class DatabaseFragment : BaseFirebaseFragment() {
 
 
     private fun setOnclicks() {
-        addButton.setOnClickListener { addUuid() }
+        addButton.setOnClickListener { addRow() }
         editAllButton.setOnClickListener { editAllRows() }
         deleteAllButton.setOnClickListener { deleteAllRows() }
+        analyseButton.setOnClickListener { analyseRows() }
     }
 
-    private fun addUuid() = nestedData.child(java.util.UUID.randomUUID().toString())
-            .setValue((1..1000).shuffled().first())
+    private fun addRow() {
+        val key = nestedData.push().key
+        key?.let {
+            nestedData.child(key).setValue(DataRow(
+                    uuid = java.util.UUID.randomUUID().toString(),
+                    number = (1..1000).shuffled().first().toString()))
+        }
+    }
 
     private fun editAllRows() = nestedData.addListenerForSingleValueEvent(object : ValueEventListener {
         override fun onDataChange(dataSnapshot: DataSnapshot) {
             for (postSnapshot in dataSnapshot.children) {
-                nestedData.child(postSnapshot.key.toString())
-                        .setValue("*${postSnapshot.value.toString()}")
+                val child = nestedData.child(postSnapshot.key.toString()).child("uuid")
+                val existingUuid = postSnapshot.child("uuid").value
+                child.setValue("*$existingUuid")
             }
         }
 
         override fun onCancelled(databaseError: DatabaseError) {
             showToast(databaseError.toException().toString())
         }
-    });
+    })
 
     private fun deleteAllRows() = nestedData.setValue("")
 
     private fun displayData(data: String) {
         tableContents.text = data
     }
+
+    private fun analyseRows() = nestedData.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val numItems = dataSnapshot.childrenCount
+                var minValue = Int.MAX_VALUE
+                var maxValue = Int.MIN_VALUE
+                dataSnapshot.children.forEach {
+                    val number = it.child("number").value.toString().toIntOrNull()
+                    number?.let {
+                        if (number > maxValue) {
+                            maxValue = number
+                        } else if (number < minValue) {
+                            minValue = number
+                        }
+                    }
+                }
+                showToast("Database has $numItems items, with a minimum of $minValue and a maximum of $maxValue")
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                showToast(databaseError.toException().toString())
+            }
+        })
 }
+
+data class DataRow(val uuid: String, val number: String)

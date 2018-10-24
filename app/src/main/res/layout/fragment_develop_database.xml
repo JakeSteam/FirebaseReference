@@ -46,6 +46,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editAllButton" />
 
+        <Button
+            android:id="@+id/analyseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/firestore_analyse"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/deleteAllButton" />
+
         <TextView
             android:id="@+id/tableContents"
             android:layout_width="wrap_content"
@@ -54,7 +66,7 @@
             android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/deleteAllButton" />
+            app:layout_constraintTop_toBottomOf="@+id/analyseButton" />
     </android.support.constraint.ConstraintLayout>
 
 </ScrollView>
