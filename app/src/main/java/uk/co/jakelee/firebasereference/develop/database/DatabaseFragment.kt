@@ -83,19 +83,23 @@ class DatabaseFragment : BaseFirebaseFragment() {
     private fun analyseRows() = nestedData.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val numItems = dataSnapshot.childrenCount
-                var minValue = Int.MAX_VALUE
-                var maxValue = Int.MIN_VALUE
-                dataSnapshot.children.forEach {
-                    val number = it.child("number").value.toString().toIntOrNull()
-                    number?.let {
-                        if (number > maxValue) {
-                            maxValue = number
-                        } else if (number < minValue) {
-                            minValue = number
+                if (numItems > 0) {
+                    var minValue = Int.MAX_VALUE
+                    var maxValue = Int.MIN_VALUE
+                    dataSnapshot.children.forEach {
+                        val number = it.child("number").value.toString().toIntOrNull()
+                        number?.let {
+                            if (number > maxValue) {
+                                maxValue = number
+                            } else if (number < minValue) {
+                                minValue = number
+                            }
                         }
                     }
+                    showToast("Database has $numItems item(s), with a minimum of $minValue and a maximum of $maxValue")
+                } else {
+                    showToast("No items to analyse!")
                 }
-                showToast("Database has $numItems items, with a minimum of $minValue and a maximum of $maxValue")
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
