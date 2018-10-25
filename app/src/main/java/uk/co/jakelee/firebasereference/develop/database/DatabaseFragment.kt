@@ -74,7 +74,7 @@ class DatabaseFragment : BaseFirebaseFragment() {
         }
     })
 
-    private fun deleteAllRows() = nestedData.setValue("")
+    private fun deleteAllRows() = nestedData.setValue(null)
 
     private fun displayData(data: String) {
         tableContents.text = data
