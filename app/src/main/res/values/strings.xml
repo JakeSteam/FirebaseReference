@@ -145,9 +145,11 @@
     <string name="authentication_login_error">Error %1$s occurred: %2$s</string>
     <string name="authentication_logged_out">Logged out!</string>
     <string name="firestore_fetch">Get Highest 3 Numbers</string>
+    <string name="firestore_insert">Add row</string>
     <string name="firestore_insert_automatic">Add row (automatic ID)</string>
     <string name="firestore_insert_manual">Add row (manual ID)</string>
     <string name="firestore_update">Edit all rows</string>
     <string name="firestore_delete">Delete row</string>
     <string name="firestore_delete_all">Delete all rows</string>
+    <string name="firestore_analyse">Analyse rows</string>
 </resources>

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
@@ -137,9 +136,5 @@ class CloudFirestoreFragment : BaseFirebaseFragment() {
             text += "ID ${document.id} has number ${document.data!![Fields.NUMBER.toString()]}\n"
         }
         tableContents.text = text
-    }
-
-    private fun showToast(text: String) {
-        Toast.makeText(activity, text, Toast.LENGTH_SHORT).show()
     }
 }
