@@ -45,7 +45,7 @@
 
     <string name="tutorial_home">https://blog.jakelee.co.uk</string>
     <string name="tutorial_authentication">https://blog.jakelee.co.uk/2018/09/29/developing-android-apps-with-firebase-authentication/</string>
-    <string name="tutorial_database"></string>
+    <string name="tutorial_database">https://blog.jakelee.co.uk/2018/10/25/developing-android-apps-with-firebase-realtime-database/</string>
     <string name="tutorial_functions"></string>
     <string name="tutorial_hosting"></string>
     <string name="tutorial_ml_kit"></string>
