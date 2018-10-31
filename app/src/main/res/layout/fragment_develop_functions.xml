@@ -6,14 +6,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".develop.functions.FunctionsFragment">
 
-    <TextView
+    <Button
+        android:id="@+id/getRowCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/functions_firestore_row"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/title_functions"
-        android:textSize="20sp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/uppercaseManufacturer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/functions_manufacturer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/getRowCount" />
 
 </android.support.constraint.ConstraintLayout>
