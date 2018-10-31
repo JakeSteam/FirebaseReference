@@ -44,8 +44,8 @@
     <string name="title_firebase">Firebase</string>
 
     <string name="tutorial_home">https://blog.jakelee.co.uk</string>
-    <string name="tutorial_authentication"></string>
-    <string name="tutorial_database"></string>
+    <string name="tutorial_authentication">https://blog.jakelee.co.uk/2018/09/29/developing-android-apps-with-firebase-authentication/</string>
+    <string name="tutorial_database">https://blog.jakelee.co.uk/2018/10/25/developing-android-apps-with-firebase-realtime-database/</string>
     <string name="tutorial_functions"></string>
     <string name="tutorial_hosting"></string>
     <string name="tutorial_ml_kit"></string>
@@ -70,7 +70,7 @@
     <string name="tutorial_in_app_messaging"></string>
     <string name="tutorial_predictions"></string>
     <string name="tutorial_remote_config"></string>
-    <string name="tutorial_cloud_firestore"></string>
+    <string name="tutorial_cloud_firestore">https://blog.jakelee.co.uk/2018/10/22/developing-android-apps-with-firebase-cloud-firestore/</string>
     <string name="tutorial_app_indexing"></string>
     <string name="tutorial_invites"></string>
 
@@ -105,7 +105,6 @@
     <string name="documentation_invites">https://firebase.google.com/docs/invites/</string>
     <string name="documentation_cloud_firestore">https://firebase.google.com/docs/firestore/</string>
 
-
     <string name="firebase_home">https://console.firebase.google.com/project/_/overview</string>
     <string name="firebase_authentication">https://console.firebase.google.com/u/0/project/_/authentication/users</string>
     <string name="firebase_database">https://console.firebase.google.com/project/_/database</string>
@@ -136,4 +135,21 @@
     <string name="firebase_app_indexing">https://console.firebase.google.com/project/_/overview</string>
     <string name="firebase_invites">https://console.firebase.google.com/project/_/overview</string>
     <string name="firebase_cloud_firestore">https://console.firebase.google.com/project/_/overview</string>
+
+    <string name="authentication_login">Login</string>
+    <string name="authentication_login_custom">Custom Login</string>
+    <string name="authentication_logout">Logout</string>
+    <string name="authentication_logged_in_provider">Provider: %1$s \nID: %2$s \nName: %3$s \nEmail: %4$s \nPhoto: %5$s\n\n</string>
+    <string name="authentication_logged_in_dates">Created: %1$s\nSigned in: %2$s \n</string>
+    <string name="authentication_logged_in">Logged in!</string>
+    <string name="authentication_login_error">Error %1$s occurred: %2$s</string>
+    <string name="authentication_logged_out">Logged out!</string>
+    <string name="firestore_fetch">Get Highest 3 Numbers</string>
+    <string name="firestore_insert">Add row</string>
+    <string name="firestore_insert_automatic">Add row (automatic ID)</string>
+    <string name="firestore_insert_manual">Add row (manual ID)</string>
+    <string name="firestore_update">Edit all rows</string>
+    <string name="firestore_delete">Delete row</string>
+    <string name="firestore_delete_all">Delete all rows</string>
+    <string name="firestore_analyse">Analyse rows</string>
 </resources>
