@@ -18,6 +18,6 @@
         android:id="@+id/nav_firebase"
         android:orderInCategory="300"
         android:title="@string/title_firebase"
-        android:icon="@drawable/ic_firebase"
+        android:icon="@drawable/ic_firebase_white"
         app:showAsAction="ifRoom" />
 </menu>
