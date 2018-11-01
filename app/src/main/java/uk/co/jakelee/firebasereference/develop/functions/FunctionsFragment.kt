@@ -1,6 +1,8 @@
 package uk.co.jakelee.firebasereference.develop.functions
 
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +11,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import uk.co.jakelee.firebasereference.BaseFirebaseFragment
 import uk.co.jakelee.firebasereference.R
-import com.google.android.gms.tasks.Task
 import com.google.firebase.functions.FirebaseFunctions
 import kotlinx.android.synthetic.main.fragment_develop_functions.*
 
@@ -31,21 +32,13 @@ class FunctionsFragment : BaseFirebaseFragment() {
     }
 
     private fun setOnclicks() {
-        getRowCount.setOnClickListener { getRowCount() }
+        helloWorld.setOnClickListener { helloWorld() }
         uppercaseManufacturer.setOnClickListener { uppercaseManufacturer() }
     }
 
-    private fun getRowCount() =
-        FirebaseFunctions.getInstance()
-                .getHttpsCallable("getRowCount")
-                .call()
-                .continueWith { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(activity, "There are currently ${task.result!!.data} rows in Cloud Firestore", Toast.LENGTH_SHORT).show()
-                    } else {
-                        Toast.makeText(activity, task.exception.toString(), Toast.LENGTH_SHORT).show()
-                    }
-                }
+    private fun helloWorld() = startActivity(
+            Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.functions_hello_world_url)))
+    )
 
     private fun uppercaseManufacturer() =
         FirebaseFunctions.getInstance()
