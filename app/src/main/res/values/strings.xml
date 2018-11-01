@@ -152,6 +152,7 @@
     <string name="firestore_delete">Delete row</string>
     <string name="firestore_delete_all">Delete all rows</string>
     <string name="firestore_analyse">Analyse rows</string>
-    <string name="functions_firestore_row">Get Firestore Row Count</string>
+    <string name="functions_hello_world">Open Hello World</string>
     <string name="functions_manufacturer">Get Uppercase Manufacturer</string>
+    <string name="functions_hello_world_url">https://us-central1-fir-referenceproject.cloudfunctions.net/helloWorld</string>
 </resources>

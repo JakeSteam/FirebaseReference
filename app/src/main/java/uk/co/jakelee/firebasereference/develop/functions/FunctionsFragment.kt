@@ -46,7 +46,7 @@ class FunctionsFragment : BaseFirebaseFragment() {
                 .call(hashMapOf("manufacturer" to Build.MANUFACTURER))
                 .continueWith { task ->
                     if (task.isSuccessful) {
-                        Toast.makeText(activity, "Manufacturer is ${task.result!!.data}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, "Uppercase manufacturer is: ${task.result!!.data}", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(activity, task.exception.toString(), Toast.LENGTH_SHORT).show()
                     }
