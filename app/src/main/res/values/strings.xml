@@ -8,7 +8,7 @@
     <string name="group_develop">Develop</string>
     <string name="title_authentication">Authentication</string>
     <string name="title_database">Database</string>
-    <string name="title_functions">Functions</string>
+    <string name="title_functions">Cloud Functions</string>
     <string name="title_hosting">Hosting</string>
     <string name="title_ml_kit">ML Kit</string>
     <string name="title_storage">Storage</string>
@@ -152,4 +152,7 @@
     <string name="firestore_delete">Delete row</string>
     <string name="firestore_delete_all">Delete all rows</string>
     <string name="firestore_analyse">Analyse rows</string>
+    <string name="functions_hello_world">Open Hello World</string>
+    <string name="functions_manufacturer">Get Uppercase Manufacturer</string>
+    <string name="functions_hello_world_url">https://us-central1-fir-referenceproject.cloudfunctions.net/helloWorld</string>
 </resources>
