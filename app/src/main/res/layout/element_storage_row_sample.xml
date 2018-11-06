@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableRow xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
-    <TextView android:text="Name" />
+    <TextView
+        android:id="@+id/filename"
+        android:text="Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"/>
     <Button
         android:id="@+id/viewMetadataButton"
-        android:background="@drawable/ic_admob"
+        android:background="@drawable/ic_info"
         android:layout_width="50dp"
         android:layout_height="50dp"/>
     <Button
         android:id="@+id/downloadButton"
-        android:background="@drawable/ic_admob"
+        android:background="@drawable/ic_save"
         android:layout_width="50dp"
         android:layout_height="50dp"/>
 </TableRow>

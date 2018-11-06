@@ -13,7 +13,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sample Files"/>
+            android:text="Sample Files"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:padding="5dp"/>
         <TableLayout
             android:id="@+id/sampleFilesTable"
             android:layout_width="match_parent"
@@ -23,7 +26,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Your Files"/>
+            android:text="Your Files"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:paddingTop="30dp"
+            android:padding="5dp"/>
         <TableLayout
             android:id="@+id/yourFilesTable"
             android:layout_width="match_parent"
