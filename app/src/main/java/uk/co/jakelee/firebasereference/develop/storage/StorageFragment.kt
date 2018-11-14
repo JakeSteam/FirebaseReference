@@ -1,7 +1,6 @@
 package uk.co.jakelee.firebasereference.develop.storage
 
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +13,7 @@ import kotlinx.android.synthetic.main.element_storage_row_sample.view.*
 import kotlinx.android.synthetic.main.fragment_develop_storage.*
 import uk.co.jakelee.firebasereference.BaseFirebaseFragment
 import uk.co.jakelee.firebasereference.R
+import java.io.File
 
 
 class StorageFragment : BaseFirebaseFragment() {
@@ -61,16 +61,14 @@ class StorageFragment : BaseFirebaseFragment() {
                 Toast.makeText(activity, "Failed to load metadata: ${it.localizedMessage}", Toast.LENGTH_SHORT).show()
             }
 
-    private fun downloadFile(reference: StorageReference) = reference.getBytes(10 * 1024 * 1024)
-            .addOnSuccessListener { bytes ->
-                activity!!.openFileOutput(reference.name, Context.MODE_PRIVATE).use {
-                    it.write(bytes)
-                    Toast.makeText(activity, "Downloaded ${reference.name} from ${it}!", Toast.LENGTH_SHORT).show()
-                }
-            }
-            .addOnFailureListener {
-                Toast.makeText(activity, "Failed to download file: ${it.localizedMessage}", Toast.LENGTH_SHORT).show()
-            }
+    private fun downloadFile(reference: StorageReference) {
+        val file = File.createTempFile("download_", reference.name)
+        reference.getFile(file).addOnSuccessListener {
+            Toast.makeText(activity, "Saved  ${reference.name} (${it.totalByteCount}bytes) to ${file.absolutePath}!", Toast.LENGTH_LONG).show()
+        }.addOnFailureListener {
+            Toast.makeText(activity, "Failed to download file: ${it.localizedMessage}", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     private fun uploadFile() {
         // Display file picker
