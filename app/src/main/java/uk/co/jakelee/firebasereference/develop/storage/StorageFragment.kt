@@ -59,6 +59,7 @@ class StorageFragment : BaseFirebaseFragment() {
 
     private fun updateTable(table: TableLayout, sampleDirectory: StorageReference, files: Set<String>, canDelete: Boolean) {
         val inflater = LayoutInflater.from(activity!!)
+        table.removeAllViews()
         for (file in files) {
             val reference = sampleDirectory.child(file)
             val row = inflater.inflate(R.layout.element_storage_row_sample, table, false)
@@ -92,8 +93,8 @@ class StorageFragment : BaseFirebaseFragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         val file = Uri.fromFile(File(data!!.dataString))
-        val userDirectory = getUserDirectory(FirebaseStorage.getInstance()).child(file.lastPathSegment)
-        userDirectory.putFile(file)
+        val userDirectory = getUserDirectory(FirebaseStorage.getInstance()).child("1234")
+        userDirectory.putFile(Uri.parse(data.dataString))
                 .addOnSuccessListener {
                     Toast.makeText(activity, "Successfully uploaded ${file.lastPathSegment}!", Toast.LENGTH_SHORT).show()
                     addUserFile(file.lastPathSegment)
@@ -119,13 +120,13 @@ class StorageFragment : BaseFirebaseFragment() {
 
 
     private fun getUserDirectory(storage: FirebaseStorage) =
-            storage.reference.child("userFolder").child(Build.FINGERPRINT)
+            storage.reference.child("userFolder").child("${Build.BRAND}/${Build.PRODUCT}/${Build.MODEL}")
 
     private fun getUserFiles() =
             PreferenceManager.getDefaultSharedPreferences(activity!!).getStringSet("uploaded_files", setOf())
 
     private fun addUserFile(file: String) {
-        val files = getUserFiles()
+        val files = getUserFiles().toMutableSet()
         files.add(file)
         PreferenceManager.getDefaultSharedPreferences(activity!!).edit()
                 .putStringSet("uploaded_files", files).apply()

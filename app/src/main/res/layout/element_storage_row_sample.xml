@@ -14,7 +14,7 @@
         android:layout_height="50dp"/>
     <Button
         android:id="@+id/deleteButton"
-        android:background="@drawable/ic_admob"
+        android:background="@drawable/ic_delete"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:visibility="gone"/>
