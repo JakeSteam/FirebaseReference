@@ -1,7 +1,11 @@
 package uk.co.jakelee.firebasereference.develop.storage
 
 
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,16 +36,28 @@ class StorageFragment : BaseFirebaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         val storage = FirebaseStorage.getInstance()
 
-        val sampleDirectory = storage.reference.child("sample")
-        val sampleFiles = arrayOf("Cat.jpg", "Dog.jpg", "Duck.jpg")
-        updateTable(sampleFilesTable, sampleDirectory, sampleFiles, false)
+        updateSampleTable(storage)
+        updateUserTable(storage)
 
-        //val userDirectory = storage.reference.child("userFolder").child(Build.FINGERPRINT)
-        // load user files from something like a shared pref
-        // updateTable(userFilesTable, userDirectory, userFiles, true)
+        uploadButton.setOnClickListener {
+            startActivityForResult(
+                    Intent(Intent.ACTION_GET_CONTENT).setType("*/*"), 1234)
+        }
     }
 
-    private fun updateTable(table: TableLayout, sampleDirectory: StorageReference, files: Array<String>, canDelete: Boolean) {
+    private fun updateUserTable(storage: FirebaseStorage) {
+        val userDirectory = getUserDirectory(storage)
+        val userFiles = getUserFiles()
+        updateTable(userFilesTable, userDirectory, userFiles, true)
+    }
+
+    private fun updateSampleTable(storage: FirebaseStorage) {
+        val sampleDirectory = storage.reference.child("sample")
+        val sampleFiles = setOf("Cat.jpg", "Dog.jpg", "Duck.jpg")
+        updateTable(sampleFilesTable, sampleDirectory, sampleFiles, false)
+    }
+
+    private fun updateTable(table: TableLayout, sampleDirectory: StorageReference, files: Set<String>, canDelete: Boolean) {
         val inflater = LayoutInflater.from(activity!!)
         for (file in files) {
             val reference = sampleDirectory.child(file)
@@ -49,6 +65,10 @@ class StorageFragment : BaseFirebaseFragment() {
             row.filename.text = reference.name
             row.viewMetadataButton.setOnClickListener { viewMetadata(reference) }
             row.downloadButton.setOnClickListener { downloadFile(reference) }
+            if (canDelete) {
+                row.deleteButton.visibility = View.VISIBLE
+                row.deleteButton.setOnClickListener { deleteFile(reference) }
+            }
             table.addView(row)
         }
     }
@@ -70,9 +90,51 @@ class StorageFragment : BaseFirebaseFragment() {
         }
     }
 
-    private fun uploadFile() {
-        // Display file picker
-        // Upload bytes
-        // Store reference somewhere, so that the user folder can display it
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        val file = Uri.fromFile(File(data!!.dataString))
+        val userDirectory = getUserDirectory(FirebaseStorage.getInstance()).child(file.lastPathSegment)
+        userDirectory.putFile(file)
+                .addOnSuccessListener {
+                    Toast.makeText(activity, "Successfully uploaded ${file.lastPathSegment}!", Toast.LENGTH_SHORT).show()
+                    addUserFile(file.lastPathSegment)
+                    updateUserTable(FirebaseStorage.getInstance())
+                }
+                .addOnFailureListener {
+                    Toast.makeText(activity, "Failed to upload ${file.lastPathSegment}!", Toast.LENGTH_SHORT).show()
+                }
+        super.onActivityResult(requestCode, resultCode, data)
+
+    }
+
+    private fun deleteFile(reference: StorageReference) = reference
+            .delete()
+            .addOnSuccessListener {
+                Toast.makeText(activity, "Deleted  ${reference.name}!", Toast.LENGTH_SHORT).show()
+                deleteUserFile(reference.name)
+                updateUserTable(FirebaseStorage.getInstance())
+            }.addOnFailureListener {
+                Toast.makeText(activity, "Failed to delete file: ${it.localizedMessage}", Toast.LENGTH_SHORT).show()
+            }
+
+
+
+    private fun getUserDirectory(storage: FirebaseStorage) =
+            storage.reference.child("userFolder").child(Build.FINGERPRINT)
+
+    private fun getUserFiles() =
+            PreferenceManager.getDefaultSharedPreferences(activity!!).getStringSet("uploaded_files", setOf())
+
+    private fun addUserFile(file: String) {
+        val files = getUserFiles()
+        files.add(file)
+        PreferenceManager.getDefaultSharedPreferences(activity!!).edit()
+                .putStringSet("uploaded_files", files).apply()
+    }
+
+    private fun deleteUserFile(file: String) {
+        val files = getUserFiles()
+        files.remove(file)
+        PreferenceManager.getDefaultSharedPreferences(activity!!).edit()
+                .putStringSet("uploaded_files", files).apply()
     }
 }

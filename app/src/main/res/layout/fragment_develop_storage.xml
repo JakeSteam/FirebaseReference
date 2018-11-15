@@ -32,11 +32,12 @@
             android:paddingTop="30dp"
             android:padding="5dp"/>
         <TableLayout
-            android:id="@+id/yourFilesTable"
+            android:id="@+id/userFilesTable"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:stretchColumns="0" />
         <Button
+            android:id="@+id/uploadButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Upload File"/>

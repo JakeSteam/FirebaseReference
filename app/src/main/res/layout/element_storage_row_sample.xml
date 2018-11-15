@@ -13,6 +13,12 @@
         android:layout_width="50dp"
         android:layout_height="50dp"/>
     <Button
+        android:id="@+id/deleteButton"
+        android:background="@drawable/ic_admob"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:visibility="gone"/>
+    <Button
         android:id="@+id/downloadButton"
         android:background="@drawable/ic_save"
         android:layout_width="50dp"
