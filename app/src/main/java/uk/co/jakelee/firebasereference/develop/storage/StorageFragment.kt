@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +19,8 @@ import kotlinx.android.synthetic.main.fragment_develop_storage.*
 import uk.co.jakelee.firebasereference.BaseFirebaseFragment
 import uk.co.jakelee.firebasereference.R
 import java.io.File
+
+
 
 
 class StorageFragment : BaseFirebaseFragment() {
@@ -68,7 +71,9 @@ class StorageFragment : BaseFirebaseFragment() {
             row.downloadButton.setOnClickListener { downloadFile(reference) }
             if (canDelete) {
                 row.deleteButton.visibility = View.VISIBLE
-                row.deleteButton.setOnClickListener { deleteFile(reference) }
+                row.deleteButton.setOnClickListener {
+                    deleteFile(reference)
+                }
             }
             table.addView(row)
         }
@@ -92,19 +97,31 @@ class StorageFragment : BaseFirebaseFragment() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        val file = Uri.fromFile(File(data!!.dataString))
-        val userDirectory = getUserDirectory(FirebaseStorage.getInstance()).child("1234")
-        userDirectory.putFile(Uri.parse(data.dataString))
+        val uri = Uri.fromFile(File(data!!.dataString))
+        val name = getFileName(uri)
+        Toast.makeText(activity, "Beginning to upload $name", Toast.LENGTH_SHORT).show()
+        getUserDirectory(FirebaseStorage.getInstance()).child(uri.lastPathSegment).putFile(Uri.parse(data.dataString))
                 .addOnSuccessListener {
-                    Toast.makeText(activity, "Successfully uploaded ${file.lastPathSegment}!", Toast.LENGTH_SHORT).show()
-                    addUserFile(file.lastPathSegment)
+                    Toast.makeText(activity, "Successfully uploaded $name!", Toast.LENGTH_SHORT).show()
+                    addUserFile(uri.lastPathSegment)
                     updateUserTable(FirebaseStorage.getInstance())
                 }
                 .addOnFailureListener {
-                    Toast.makeText(activity, "Failed to upload ${file.lastPathSegment}!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "Failed to upload $name!", Toast.LENGTH_SHORT).show()
                 }
         super.onActivityResult(requestCode, resultCode, data)
+    }
 
+    private fun getFileName(uri: Uri): String {
+        val projection = arrayOf(MediaStore.MediaColumns.DISPLAY_NAME)
+        val cr = activity!!.contentResolver
+        var name = uri.lastPathSegment
+        cr.query(uri, projection, null, null, null)?.use { it ->
+            if (it.moveToFirst()) {
+                name = it.getString(0)
+            }
+        }
+        return name
     }
 
     private fun deleteFile(reference: StorageReference) = reference
