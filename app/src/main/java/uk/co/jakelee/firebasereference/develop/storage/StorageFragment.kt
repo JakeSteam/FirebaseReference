@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.preference.PreferenceManager
-import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -98,9 +97,9 @@ class StorageFragment : BaseFirebaseFragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         val uri = Uri.fromFile(File(data!!.dataString))
-        val name = getFileName(uri)
+        val name = uri.lastPathSegment
         Toast.makeText(activity, "Beginning to upload $name", Toast.LENGTH_SHORT).show()
-        getUserDirectory(FirebaseStorage.getInstance()).child(uri.lastPathSegment).putFile(Uri.parse(data.dataString))
+        getUserDirectory(FirebaseStorage.getInstance()).child(name).putFile(Uri.parse(data.dataString))
                 .addOnSuccessListener {
                     Toast.makeText(activity, "Successfully uploaded $name!", Toast.LENGTH_SHORT).show()
                     addUserFile(uri.lastPathSegment)
@@ -110,18 +109,6 @@ class StorageFragment : BaseFirebaseFragment() {
                     Toast.makeText(activity, "Failed to upload $name!", Toast.LENGTH_SHORT).show()
                 }
         super.onActivityResult(requestCode, resultCode, data)
-    }
-
-    private fun getFileName(uri: Uri): String {
-        val projection = arrayOf(MediaStore.MediaColumns.DISPLAY_NAME)
-        val cr = activity!!.contentResolver
-        var name = uri.lastPathSegment
-        cr.query(uri, projection, null, null, null)?.use { it ->
-            if (it.moveToFirst()) {
-                name = it.getString(0)
-            }
-        }
-        return name
     }
 
     private fun deleteFile(reference: StorageReference) = reference
