@@ -1,6 +1,7 @@
 package uk.co.jakelee.firebasereference.develop.storage
 
 
+import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -96,6 +97,7 @@ class StorageFragment : BaseFirebaseFragment() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (resultCode != RESULT_OK) return
         val uri = Uri.fromFile(File(data!!.dataString))
         val name = uri.lastPathSegment
         Toast.makeText(activity, "Beginning to upload $name", Toast.LENGTH_SHORT).show()
