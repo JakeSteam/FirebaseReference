@@ -50,6 +50,9 @@ dependencies {
     // Firebase Cloud Functions
     implementation 'com.google.firebase:firebase-functions:16.1.2'
 
+    // Firebase Cloud Storage
+    implementation 'com.google.firebase:firebase-storage:16.0.4'
+
     // Testing
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
