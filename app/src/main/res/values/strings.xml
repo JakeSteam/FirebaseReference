@@ -155,4 +155,6 @@
     <string name="functions_hello_world">Open Hello World</string>
     <string name="functions_manufacturer">Get Uppercase Manufacturer</string>
     <string name="functions_hello_world_url">https://us-central1-fir-referenceproject.cloudfunctions.net/helloWorld</string>
+    <string name="hosting_button">Open hosted site</string>
+    <string name="hosting_url">https://firebasehosting.jakelee.co.uk</string>
 </resources>
