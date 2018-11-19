@@ -49,7 +49,7 @@
     <string name="tutorial_functions">https://blog.jakelee.co.uk/developing-android-apps-with-firebase-cloud-functions/</string>
     <string name="tutorial_hosting"></string>
     <string name="tutorial_ml_kit"></string>
-    <string name="tutorial_storage"></string>
+    <string name="tutorial_storage">https://blog.jakelee.co.uk/developing-android-apps-with-firebase-cloud-storage/</string>
     <string name="tutorial_crashlytics"></string>
     <string name="tutorial_performance"></string>
     <string name="tutorial_test_lab"></string>
