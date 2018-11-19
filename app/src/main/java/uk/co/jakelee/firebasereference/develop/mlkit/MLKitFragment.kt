@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
 import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetectorOptions
@@ -77,7 +76,6 @@ class MLKitFragment : BaseFirebaseFragment() {
                 .onDeviceTextRecognizer
                 .processImage(image)
                 .addOnSuccessListener { textObject ->
-                    output.text = textObject.text
                     var blocks = 0
                     var lines = 0
                     var words = 0
@@ -91,7 +89,8 @@ class MLKitFragment : BaseFirebaseFragment() {
                             }
                         }
                     }
-                    Toast.makeText(activity!!, "Found $blocks blocks, $lines lines, $words words, and $letters letters.", Toast.LENGTH_LONG).show()
+                    output.text = String.format(getString(R.string.mlkit_text_data),
+                            blocks, lines, words, letters, textObject.text)
                 }
                 .addOnFailureListener { output.text = it.localizedMessage }
     }
@@ -174,19 +173,19 @@ class MLKitFragment : BaseFirebaseFragment() {
     }
 
     private fun getBarcodeType(valueType: Int) = when (valueType) {
-        FirebaseVisionBarcode.TYPE_CONTACT_INFO -> "Contact info"
-        FirebaseVisionBarcode.TYPE_EMAIL -> "Email"
-        FirebaseVisionBarcode.TYPE_ISBN -> "ISBN"
-        FirebaseVisionBarcode.TYPE_PHONE -> "Phone number"
-        FirebaseVisionBarcode.TYPE_PRODUCT -> "Product"
-        FirebaseVisionBarcode.TYPE_SMS -> "SMS"
-        FirebaseVisionBarcode.TYPE_TEXT -> "Text"
-        FirebaseVisionBarcode.TYPE_URL -> "URL"
-        FirebaseVisionBarcode.TYPE_WIFI -> "WiFi access point"
-        FirebaseVisionBarcode.TYPE_GEO -> "Coordinates"
-        FirebaseVisionBarcode.TYPE_CALENDAR_EVENT -> "Event"
-        FirebaseVisionBarcode.TYPE_DRIVER_LICENSE -> "Driver's license"
-        else -> "Unknown"
+        FirebaseVisionBarcode.TYPE_CONTACT_INFO -> getString(R.string.mlkit_contact_info)
+        FirebaseVisionBarcode.TYPE_EMAIL -> getString(R.string.mlkit_email)
+        FirebaseVisionBarcode.TYPE_ISBN -> getString(R.string.mlkit_isbn)
+        FirebaseVisionBarcode.TYPE_PHONE -> getString(R.string.mlkit_phone)
+        FirebaseVisionBarcode.TYPE_PRODUCT -> getString(R.string.mlkit_product)
+        FirebaseVisionBarcode.TYPE_SMS -> getString(R.string.mlkit_sms)
+        FirebaseVisionBarcode.TYPE_TEXT -> getString(R.string.mlkit_text)
+        FirebaseVisionBarcode.TYPE_URL -> getString(R.string.mlkit_url)
+        FirebaseVisionBarcode.TYPE_WIFI -> getString(R.string.mlkit_wifi)
+        FirebaseVisionBarcode.TYPE_GEO -> getString(R.string.mlkit_coords)
+        FirebaseVisionBarcode.TYPE_CALENDAR_EVENT -> getString(R.string.mlkit_event)
+        FirebaseVisionBarcode.TYPE_DRIVER_LICENSE -> getString(R.string.mlkit_drivers_license)
+        else -> getString(R.string.mlkit_unknown)
     }
 
 }

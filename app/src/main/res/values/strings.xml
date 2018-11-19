@@ -163,4 +163,18 @@
     <string name="mlkit_barcode_data">Raw value: %s\nType: %s\n\n</string>
     <string name="mlkit_no_label">No entities found!</string>
     <string name="mlkit_label_data">Found %s (%.2f%% confidence)\n</string>
+    <string name="mlkit_contact_info">Contact info</string>
+    <string name="mlkit_email">Email</string>
+    <string name="mlkit_isbn">ISBN</string>
+    <string name="mlkit_phone">Phone number</string>
+    <string name="mlkit_product">Product</string>
+    <string name="mlkit_sms">SMS</string>
+    <string name="mlkit_text">Text</string>
+    <string name="mlkit_url">URL</string>
+    <string name="mlkit_wifi">WiFi access point</string>
+    <string name="mlkit_coords">Coordinates</string>
+    <string name="mlkit_event">Event</string>
+    <string name="mlkit_drivers_license">Driver\'s license</string>
+    <string name="mlkit_unknown">Unknown</string>
+    <string name="mlkit_text_data">Found %s blocks, %s lines, %s words, and %s letters.\n\nRaw text:\n%s</string>
 </resources>
