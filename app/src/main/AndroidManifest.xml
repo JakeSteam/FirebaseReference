@@ -12,7 +12,7 @@
         android:name=".FirebaseReferenceApplication">
         <meta-data
             android:name="com.google.firebase.ml.vision.DEPENDENCIES"
-            android:value="ocr" />
+            android:value="ocr,face" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

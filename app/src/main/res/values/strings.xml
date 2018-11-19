@@ -157,4 +157,6 @@
     <string name="functions_hello_world_url">https://us-central1-fir-referenceproject.cloudfunctions.net/helloWorld</string>
     <string name="hosting_button">Open hosted site</string>
     <string name="hosting_url">https://firebasehosting.jakelee.co.uk</string>
+    <string name="mlkit_no_faces">No faces found!</string>
+    <string name="mlkit_face_data">Face ID: %d\nLeft eye open probability: %.2f%%\nRight eye open probability: %.2f%%\nSmiling probability: %.2f%%\nDegrees turned: %.2f\nDegrees tilted: %.2f\n\n</string>
 </resources>
