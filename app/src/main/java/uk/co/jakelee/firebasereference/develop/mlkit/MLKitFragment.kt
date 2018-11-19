@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.google.firebase.ml.vision.FirebaseVision
+import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
+import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetectorOptions
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetectorOptions
 import kotlinx.android.synthetic.main.fragment_develop_ml_kit.*
@@ -24,6 +26,7 @@ class MLKitFragment : BaseFirebaseFragment() {
 
     private val TEXT_RESPONSE = 3331
     private val FACE_RESPONSE = 3442
+    private val BARCODE_RESPONSE = 4443
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -41,6 +44,10 @@ class MLKitFragment : BaseFirebaseFragment() {
             startActivityForResult(
                     Intent(Intent.ACTION_GET_CONTENT).setType("image/*"), FACE_RESPONSE)
         }
+        barcodeButton.setOnClickListener {
+            startActivityForResult(
+                    Intent(Intent.ACTION_GET_CONTENT).setType("image/*"), BARCODE_RESPONSE)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -53,6 +60,7 @@ class MLKitFragment : BaseFirebaseFragment() {
         when (requestCode) {
             TEXT_RESPONSE -> retrieveText(image)
             FACE_RESPONSE -> retrieveFace(image)
+            BARCODE_RESPONSE -> retrieveBarcode(image)
         }
 
     }
@@ -109,6 +117,50 @@ class MLKitFragment : BaseFirebaseFragment() {
                     }
                 }
                 .addOnFailureListener { output.text = it.localizedMessage }
+    }
+
+    private fun retrieveBarcode(image: FirebaseVisionImage) {
+        val options = FirebaseVisionBarcodeDetectorOptions.Builder()
+                .setBarcodeFormats(
+                        FirebaseVisionBarcode.FORMAT_QR_CODE,
+                        FirebaseVisionBarcode.FORMAT_AZTEC,
+                        FirebaseVisionBarcode.FORMAT_UPC_A,
+                        FirebaseVisionBarcode.FORMAT_UPC_E,
+                        FirebaseVisionBarcode.FORMAT_EAN_13)
+                .build()
+        FirebaseVision.getInstance()
+                .getVisionBarcodeDetector(options)
+                .detectInImage(image)
+                .addOnSuccessListener { barcodes ->
+                    if (barcodes.isEmpty()) {
+                        output.text = getString(R.string.mlkit_no_barcode)
+                    } else {
+                        var string = ""
+                        barcodes.forEach {
+                            string += String.format(getString(R.string.mlkit_barcode_data),
+                                    it.rawValue,
+                                    getBarcodeType(it.valueType))
+                        }
+                        output.text = string
+                    }
+                }
+                .addOnFailureListener { output.text = it.localizedMessage }
+    }
+
+    private fun getBarcodeType(valueType: Int) = when (valueType) {
+        FirebaseVisionBarcode.TYPE_CONTACT_INFO -> "Contact info"
+        FirebaseVisionBarcode.TYPE_EMAIL -> "Email"
+        FirebaseVisionBarcode.TYPE_ISBN -> "ISBN"
+        FirebaseVisionBarcode.TYPE_PHONE -> "Phone number"
+        FirebaseVisionBarcode.TYPE_PRODUCT -> "Product"
+        FirebaseVisionBarcode.TYPE_SMS -> "SMS"
+        FirebaseVisionBarcode.TYPE_TEXT -> "Text"
+        FirebaseVisionBarcode.TYPE_URL -> "URL"
+        FirebaseVisionBarcode.TYPE_WIFI -> "WiFi access point"
+        FirebaseVisionBarcode.TYPE_GEO -> "Coordinates"
+        FirebaseVisionBarcode.TYPE_CALENDAR_EVENT -> "Event"
+        FirebaseVisionBarcode.TYPE_DRIVER_LICENSE -> "Driver's license"
+        else -> "Unknown"
     }
 
 }

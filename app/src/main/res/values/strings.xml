@@ -159,4 +159,6 @@
     <string name="hosting_url">https://firebasehosting.jakelee.co.uk</string>
     <string name="mlkit_no_faces">No faces found!</string>
     <string name="mlkit_face_data">Face ID: %d\nLeft eye open probability: %.2f%%\nRight eye open probability: %.2f%%\nSmiling probability: %.2f%%\nDegrees turned: %.2f\nDegrees tilted: %.2f\n\n</string>
+    <string name="mlkit_no_barcode">No barcodes found!</string>
+    <string name="mlkit_barcode_data">Raw value: %s\nType: %s</string>
 </resources>
