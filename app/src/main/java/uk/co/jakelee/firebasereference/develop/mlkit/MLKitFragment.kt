@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.fragment_develop_ml_kit.*
 import uk.co.jakelee.firebasereference.BaseFirebaseFragment
 import uk.co.jakelee.firebasereference.R
 
+
 class MLKitFragment : BaseFirebaseFragment() {
     override val title = R.string.title_ml_kit
     override val tutorialUrl = R.string.tutorial_ml_kit
@@ -27,6 +28,7 @@ class MLKitFragment : BaseFirebaseFragment() {
     private val TEXT_RESPONSE = 3331
     private val FACE_RESPONSE = 3442
     private val BARCODE_RESPONSE = 4443
+    private val LABEL_RESPONSE = 4143
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -48,6 +50,10 @@ class MLKitFragment : BaseFirebaseFragment() {
             startActivityForResult(
                     Intent(Intent.ACTION_GET_CONTENT).setType("image/*"), BARCODE_RESPONSE)
         }
+        objectButton.setOnClickListener {
+            startActivityForResult(
+                    Intent(Intent.ACTION_GET_CONTENT).setType("image/*"), LABEL_RESPONSE)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -61,6 +67,7 @@ class MLKitFragment : BaseFirebaseFragment() {
             TEXT_RESPONSE -> retrieveText(image)
             FACE_RESPONSE -> retrieveFace(image)
             BARCODE_RESPONSE -> retrieveBarcode(image)
+            LABEL_RESPONSE -> retrieveLabels(image)
         }
 
     }
@@ -140,6 +147,25 @@ class MLKitFragment : BaseFirebaseFragment() {
                             string += String.format(getString(R.string.mlkit_barcode_data),
                                     it.rawValue,
                                     getBarcodeType(it.valueType))
+                        }
+                        output.text = string
+                    }
+                }
+                .addOnFailureListener { output.text = it.localizedMessage }
+    }
+
+    private fun retrieveLabels(image: FirebaseVisionImage) {
+        FirebaseVision.getInstance()
+                .visionLabelDetector
+                .detectInImage(image)
+                .addOnSuccessListener { labels ->
+                    if (labels.isEmpty()) {
+                        output.text = getString(R.string.mlkit_no_label)
+                    } else {
+                        var string = ""
+                        labels.forEach {
+                            string += String.format(getString(R.string.mlkit_label_data),
+                                    it.label, it.confidence * 100)
                         }
                         output.text = string
                     }

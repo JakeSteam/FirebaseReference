@@ -56,6 +56,7 @@ dependencies {
     // Firebase ML Kit
     implementation 'com.google.firebase:firebase-ml-vision:18.0.1'
     implementation 'com.google.firebase:firebase-ml-vision-face-model:17.0.2'
+    implementation 'com.google.firebase:firebase-ml-vision-image-label-model:17.0.2'
 
     // Testing
     testImplementation 'junit:junit:4.12'
