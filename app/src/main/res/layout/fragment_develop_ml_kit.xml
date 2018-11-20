@@ -23,41 +23,25 @@
                 android:id="@+id/textButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Text"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:text="Text" />
 
             <Button
                 android:id="@+id/faceButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Face"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:text="Face" />
 
             <Button
                 android:id="@+id/barcodeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Barcode"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:text="Barcode" />
 
             <Button
                 android:id="@+id/objectButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Object"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:text="Object" />
         </LinearLayout>
 
         <ImageView
