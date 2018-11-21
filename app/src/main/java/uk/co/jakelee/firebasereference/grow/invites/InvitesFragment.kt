@@ -1,4 +1,4 @@
-package uk.co.jakelee.firebasereference.develop.invites
+package uk.co.jakelee.firebasereference.grow.invites
 
 
 import android.app.Activity
@@ -11,7 +11,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.google.android.gms.appinvite.AppInviteInvitation
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.appinvite.FirebaseAppInvite
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
 import kotlinx.android.synthetic.main.fragment_develop_invites.*
