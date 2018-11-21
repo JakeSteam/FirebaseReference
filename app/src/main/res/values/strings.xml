@@ -39,7 +39,7 @@
     <string name="title_cloud_firestore">Cloud Firestore</string>
     <string name="title_invites">Invites</string>
     <string name="title_app_indexing">App Indexing</string>
-    <string name="title_tutorial">Full Tutorial</string>
+    <string name="title_tutorial">Tutorial</string>
     <string name="title_documentation">Documentation</string>
     <string name="title_firebase">Firebase</string>
 
@@ -177,4 +177,9 @@
     <string name="mlkit_drivers_license">Driver\'s license</string>
     <string name="mlkit_unknown">Unknown</string>
     <string name="mlkit_text_data">Found %s blocks, %s lines, %s words, and %s letters.\n\nRaw text:\n%s</string>
+    <string name="home_hamburger">Open menu</string>
+    <string name="home_tutorial">Open tutorial</string>
+    <string name="home_documentation">Open documentation</string>
+    <string name="home_firebase_console">Open firebase console</string>
+    <string name="home_description">This app is an example implementation of all Firebase technologies.\n\nThe source code is available at https://github.com/JakeSteam/FirebaseReference.\n\nEvery technology has an associated tutorial on https://blog.jakelee.co.uk/firebase/!</string>
 </resources>
