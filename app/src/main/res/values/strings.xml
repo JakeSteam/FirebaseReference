@@ -47,8 +47,8 @@
     <string name="tutorial_authentication">https://blog.jakelee.co.uk/2018/09/29/developing-android-apps-with-firebase-authentication/</string>
     <string name="tutorial_database">https://blog.jakelee.co.uk/2018/10/25/developing-android-apps-with-firebase-realtime-database/</string>
     <string name="tutorial_functions">https://blog.jakelee.co.uk/developing-android-apps-with-firebase-cloud-functions/</string>
-    <string name="tutorial_hosting"></string>
-    <string name="tutorial_ml_kit"></string>
+    <string name="tutorial_hosting">https://blog.jakelee.co.uk/developing-web-apps-with-firebase-hosting/</string>
+    <string name="tutorial_ml_kit">https://blog.jakelee.co.uk/developing-android-apps-with-firebase-ml-kit/</string>
     <string name="tutorial_storage">https://blog.jakelee.co.uk/developing-android-apps-with-firebase-cloud-storage/</string>
     <string name="tutorial_crashlytics"></string>
     <string name="tutorial_performance"></string>
