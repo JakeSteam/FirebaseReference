@@ -157,4 +157,24 @@
     <string name="functions_hello_world_url">https://us-central1-fir-referenceproject.cloudfunctions.net/helloWorld</string>
     <string name="hosting_button">Open hosted site</string>
     <string name="hosting_url">https://firebasehosting.jakelee.co.uk</string>
+    <string name="mlkit_no_faces">No faces found!</string>
+    <string name="mlkit_face_data">Face ID: %d\nLeft eye open probability: %.2f%%\nRight eye open probability: %.2f%%\nSmiling probability: %.2f%%\nDegrees turned: %.2f\nDegrees tilted: %.2f\n\n</string>
+    <string name="mlkit_no_barcode">No barcodes found!</string>
+    <string name="mlkit_barcode_data">Raw value: %s\nType: %s\n\n</string>
+    <string name="mlkit_no_label">No entities found!</string>
+    <string name="mlkit_label_data">Found %s (%.2f%% confidence)\n</string>
+    <string name="mlkit_contact_info">Contact info</string>
+    <string name="mlkit_email">Email</string>
+    <string name="mlkit_isbn">ISBN</string>
+    <string name="mlkit_phone">Phone number</string>
+    <string name="mlkit_product">Product</string>
+    <string name="mlkit_sms">SMS</string>
+    <string name="mlkit_text">Text</string>
+    <string name="mlkit_url">URL</string>
+    <string name="mlkit_wifi">WiFi access point</string>
+    <string name="mlkit_coords">Coordinates</string>
+    <string name="mlkit_event">Event</string>
+    <string name="mlkit_drivers_license">Driver\'s license</string>
+    <string name="mlkit_unknown">Unknown</string>
+    <string name="mlkit_text_data">Found %s blocks, %s lines, %s words, and %s letters.\n\nRaw text:\n%s</string>
 </resources>
