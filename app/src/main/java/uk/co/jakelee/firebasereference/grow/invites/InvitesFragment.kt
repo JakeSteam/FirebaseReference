@@ -38,11 +38,11 @@ class InvitesFragment : BaseFirebaseFragment() {
 
     private fun sendInviteOnClick() = activity!!
             .startActivityForResult(
-                    AppInviteInvitation.IntentBuilder("title")
-                            .setMessage("custom message sent with invitations")
-                            .setDeepLink(Uri.parse("deep link to some kind of just-invited screen"))
-                            .setCustomImage(Uri.parse("url of square image"))
-                            .setCallToActionText("button text")
+                    AppInviteInvitation.IntentBuilder("Share an invite!")
+                            .setMessage("Here is the custom message inside the invitation!")
+                            .setDeepLink(Uri.parse("https://firebasereference.jakelee.co.uk/deeplink"))
+                            .setCustomImage(Uri.parse("https://placehold.it/750x750"))
+                            .setCallToActionText("Accept invite")
                             .build(), INVITE_REQUEST_CODE)
 
     private fun processPendingInvite() = FirebaseDynamicLinks.getInstance()
