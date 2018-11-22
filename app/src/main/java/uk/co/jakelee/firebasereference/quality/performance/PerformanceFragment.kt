@@ -2,11 +2,16 @@ package uk.co.jakelee.firebasereference.quality.performance
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import uk.co.jakelee.firebasereference.BaseFirebaseFragment
 import uk.co.jakelee.firebasereference.R
+import com.google.firebase.perf.FirebasePerformance
+import com.google.firebase.perf.metrics.AddTrace
+import kotlinx.android.synthetic.main.fragment_quality_performance.*
+import java.lang.Thread.sleep
 
 class PerformanceFragment : BaseFirebaseFragment() {
     override val title = R.string.title_performance
@@ -20,5 +25,29 @@ class PerformanceFragment : BaseFirebaseFragment() {
         return inflater.inflate(R.layout.fragment_quality_performance, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        manualTrace.setOnClickListener { performManualTrace() }
+        automaticTrace.setOnClickListener { performAutomaticTrace() }
+    }
+
+    private fun performManualTrace() {
+        val trace = FirebasePerformance.getInstance().newTrace("manual")
+        trace.start()
+        trace.putAttribute("run_manual", true.toString())
+        for (i in 1..10) {
+            trace.incrementMetric("manual_counter", 1)
+            sleep(100)
+        }
+        trace.stop()
+    }
+
+    @AddTrace(name = "automatic")
+    private fun performAutomaticTrace() {
+        for (i in 1..10) {
+            Log.d("Performance", "Value is $i")
+            sleep(100)
+        }
+    }
 
 }
