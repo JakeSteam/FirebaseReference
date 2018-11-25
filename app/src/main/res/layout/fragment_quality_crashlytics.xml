@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Force crash"/>
+        android:text="@string/crashlytics_crash"/>
 
     <Button
         android:id="@+id/createLog"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toBottomOf="@id/forceCrash"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Log data"/>
+        android:text="@string/crashlytics_log_data"/>
 
     <Button
         android:id="@+id/updateKey"
@@ -31,6 +31,6 @@
         app:layout_constraintTop_toBottomOf="@id/createLog"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Update key"/>
+        android:text="@string/crashlytics_update_key"/>
 
 </android.support.constraint.ConstraintLayout>

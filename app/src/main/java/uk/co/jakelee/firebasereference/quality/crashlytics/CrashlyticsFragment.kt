@@ -31,11 +31,12 @@ class CrashlyticsFragment : BaseFirebaseFragment() {
             Crashlytics.getInstance().crash()
         }
         createLog.setOnClickListener {
-            Crashlytics.log("Create log was clicked!")
-            Toast.makeText(activity!!, "Crashlytics log was created!", Toast.LENGTH_SHORT).show()
+            Crashlytics.log(getString(R.string.crashlytics_log_created))
+            Toast.makeText(activity!!, getString(R.string.crashlytics_log_created), Toast.LENGTH_SHORT).show()
         }
         updateKey.setOnClickListener {
             Crashlytics.setInt("randomNumber", (1..1000).shuffled().last())
+            Toast.makeText(activity!!, getString(R.string.crashlytics_number_updated), Toast.LENGTH_SHORT).show()
         }
     }
 }
