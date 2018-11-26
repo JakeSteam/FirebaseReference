@@ -39,7 +39,7 @@
     <string name="title_cloud_firestore">Cloud Firestore</string>
     <string name="title_invites">Invites</string>
     <string name="title_app_indexing">App Indexing</string>
-    <string name="title_tutorial">Full Tutorial</string>
+    <string name="title_tutorial">Tutorial</string>
     <string name="title_documentation">Documentation</string>
     <string name="title_firebase">Firebase</string>
 
@@ -47,8 +47,8 @@
     <string name="tutorial_authentication">https://blog.jakelee.co.uk/2018/09/29/developing-android-apps-with-firebase-authentication/</string>
     <string name="tutorial_database">https://blog.jakelee.co.uk/2018/10/25/developing-android-apps-with-firebase-realtime-database/</string>
     <string name="tutorial_functions">https://blog.jakelee.co.uk/developing-android-apps-with-firebase-cloud-functions/</string>
-    <string name="tutorial_hosting"></string>
-    <string name="tutorial_ml_kit"></string>
+    <string name="tutorial_hosting">https://blog.jakelee.co.uk/developing-web-apps-with-firebase-hosting/</string>
+    <string name="tutorial_ml_kit">https://blog.jakelee.co.uk/developing-android-apps-with-firebase-ml-kit/</string>
     <string name="tutorial_storage">https://blog.jakelee.co.uk/developing-android-apps-with-firebase-cloud-storage/</string>
     <string name="tutorial_crashlytics"></string>
     <string name="tutorial_performance"></string>
@@ -157,4 +157,34 @@
     <string name="functions_hello_world_url">https://us-central1-fir-referenceproject.cloudfunctions.net/helloWorld</string>
     <string name="hosting_button">Open hosted site</string>
     <string name="hosting_url">https://firebasehosting.jakelee.co.uk</string>
+    <string name="mlkit_no_faces">No faces found!</string>
+    <string name="mlkit_face_data">Face ID: %d\nLeft eye open probability: %.2f%%\nRight eye open probability: %.2f%%\nSmiling probability: %.2f%%\nDegrees turned: %.2f\nDegrees tilted: %.2f\n\n</string>
+    <string name="mlkit_no_barcode">No barcodes found!</string>
+    <string name="mlkit_barcode_data">Raw value: %s\nType: %s\n\n</string>
+    <string name="mlkit_no_label">No entities found!</string>
+    <string name="mlkit_label_data">Found %s (%.2f%% confidence)\n</string>
+    <string name="mlkit_contact_info">Contact info</string>
+    <string name="mlkit_email">Email</string>
+    <string name="mlkit_isbn">ISBN</string>
+    <string name="mlkit_phone">Phone number</string>
+    <string name="mlkit_product">Product</string>
+    <string name="mlkit_sms">SMS</string>
+    <string name="mlkit_text">Text</string>
+    <string name="mlkit_url">URL</string>
+    <string name="mlkit_wifi">WiFi access point</string>
+    <string name="mlkit_coords">Coordinates</string>
+    <string name="mlkit_event">Event</string>
+    <string name="mlkit_drivers_license">Driver\'s license</string>
+    <string name="mlkit_unknown">Unknown</string>
+    <string name="mlkit_text_data">Found %s blocks, %s lines, %s words, and %s letters.\n\nRaw text:\n%s</string>
+    <string name="home_hamburger">Open menu</string>
+    <string name="home_tutorial">Open tutorial</string>
+    <string name="home_documentation">Open documentation</string>
+    <string name="home_firebase_console">Open firebase console</string>
+    <string name="home_description">This app is an example implementation of all Firebase technologies.\n\nThe source code is available at https://github.com/JakeSteam/FirebaseReference.\n\nEvery technology has an associated tutorial on https://blog.jakelee.co.uk/firebase/!</string>
+    <string name="crashlytics_log_data">Log data</string>
+    <string name="crashlytics_update_key">Update key</string>
+    <string name="crashlytics_crash">Force crash</string>
+    <string name="crashlytics_log_created">Crashlytics log was created!</string>
+    <string name="crashlytics_number_updated">Crashlytics random number was updated!</string>
 </resources>

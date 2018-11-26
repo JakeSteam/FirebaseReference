@@ -31,7 +31,7 @@ import uk.co.jakelee.firebasereference.develop.cloud_firestore.CloudFirestoreFra
 import uk.co.jakelee.firebasereference.develop.database.DatabaseFragment
 import uk.co.jakelee.firebasereference.develop.functions.FunctionsFragment
 import uk.co.jakelee.firebasereference.develop.hosting.HostingFragment
-import uk.co.jakelee.firebasereference.develop.ml_kit.MLKitFragment
+import uk.co.jakelee.firebasereference.develop.mlkit.MLKitFragment
 import uk.co.jakelee.firebasereference.develop.storage.StorageFragment
 import uk.co.jakelee.firebasereference.grow.ab_testing.ABTestingFragment
 import uk.co.jakelee.firebasereference.grow.admob.AdmobFragment
