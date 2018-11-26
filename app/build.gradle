@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'io.fabric'
+
 apply plugin: 'com.google.firebase.firebase-perf'
 
 android {
@@ -62,6 +64,9 @@ dependencies {
 
     // Firebase Performance Monitoring
     implementation 'com.google.firebase:firebase-perf:16.2.0'
+
+    // Firebase Crashlytics
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.6'
 
     // Testing
     testImplementation 'junit:junit:4.12'
