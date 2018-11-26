@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'io.fabric'
+
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -57,6 +59,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-ml-vision:18.0.1'
     implementation 'com.google.firebase:firebase-ml-vision-face-model:17.0.2'
     implementation 'com.google.firebase:firebase-ml-vision-image-label-model:17.0.2'
+
+    // Firebase Crashlytics
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.6'
 
     // Testing
     testImplementation 'junit:junit:4.12'

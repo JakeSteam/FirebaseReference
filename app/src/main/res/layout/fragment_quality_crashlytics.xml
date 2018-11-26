@@ -6,14 +6,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".quality.crashlytics.CrashlyticsFragment">
 
-    <TextView
+    <Button
+        android:id="@+id/forceCrash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/title_crashlytics"
-        android:textSize="20sp"/>
+        android:text="@string/crashlytics_crash"/>
+
+    <Button
+        android:id="@+id/createLog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/forceCrash"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/crashlytics_log_data"/>
+
+    <Button
+        android:id="@+id/updateKey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/createLog"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/crashlytics_update_key"/>
 
 </android.support.constraint.ConstraintLayout>

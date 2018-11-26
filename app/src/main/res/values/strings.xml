@@ -182,4 +182,9 @@
     <string name="home_documentation">Open documentation</string>
     <string name="home_firebase_console">Open firebase console</string>
     <string name="home_description">This app is an example implementation of all Firebase technologies.\n\nThe source code is available at https://github.com/JakeSteam/FirebaseReference.\n\nEvery technology has an associated tutorial on https://blog.jakelee.co.uk/firebase/!</string>
+    <string name="crashlytics_log_data">Log data</string>
+    <string name="crashlytics_update_key">Update key</string>
+    <string name="crashlytics_crash">Force crash</string>
+    <string name="crashlytics_log_created">Crashlytics log was created!</string>
+    <string name="crashlytics_number_updated">Crashlytics random number was updated!</string>
 </resources>
