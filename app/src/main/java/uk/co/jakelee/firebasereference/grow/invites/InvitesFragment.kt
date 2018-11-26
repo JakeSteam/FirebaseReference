@@ -1,8 +1,6 @@
 package uk.co.jakelee.firebasereference.grow.invites
 
 
-import android.app.Activity
-import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -22,7 +20,6 @@ class InvitesFragment : BaseFirebaseFragment() {
     override val tutorialUrl = R.string.tutorial_invites
     override val docsUrl = R.string.documentation_invites
     override val firebaseUrl = R.string.firebase_invites
-    private val INVITE_REQUEST_CODE = 54321
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -41,9 +38,9 @@ class InvitesFragment : BaseFirebaseFragment() {
                     AppInviteInvitation.IntentBuilder("Share an invite!")
                             .setMessage("Here is the custom message inside the invitation!")
                             .setDeepLink(Uri.parse("https://firebasereference.jakelee.co.uk/deeplink"))
-                            .setCustomImage(Uri.parse("https://placehold.it/750x750"))
+                            .setCustomImage(Uri.parse("https://via.placeholder.com/600x600/4286f4/000000?text=Invite+image!"))
                             .setCallToActionText("Accept invite")
-                            .build(), INVITE_REQUEST_CODE)
+                            .build(), Companion.INVITE_REQUEST_CODE)
 
     private fun processPendingInvite() = FirebaseDynamicLinks.getInstance()
             .getDynamicLink(activity!!.intent)
@@ -58,16 +55,7 @@ class InvitesFragment : BaseFirebaseFragment() {
             }
             .addOnFailureListener { Log.e("Invites", "Failed") }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == INVITE_REQUEST_CODE) {
-            if (resultCode == Activity.RESULT_OK) {
-                val ids = AppInviteInvitation.getInvitationIds(resultCode, data!!)
-                val idsString = ids.joinToString()
-                Toast.makeText(activity!!, "Invited: $idsString", Toast.LENGTH_LONG).show()
-            } else {
-                Toast.makeText(activity!!, "Invite sending failed / cancelled: $resultCode", Toast.LENGTH_LONG).show()
-            }
-        }
+    companion object {
+        public const val INVITE_REQUEST_CODE = 54321
     }
 }
