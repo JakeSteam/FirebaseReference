@@ -35,7 +35,7 @@ class PerformanceFragment : BaseFirebaseFragment() {
         val trace = FirebasePerformance.getInstance().newTrace("manual")
         trace.start()
         trace.putAttribute("run_manual", true.toString())
-        for (i in 1..10) {
+        for (i in 1..(1..10).shuffled().last()) {
             trace.incrementMetric("manual_counter", 1)
             sleep(100)
         }
@@ -44,10 +44,9 @@ class PerformanceFragment : BaseFirebaseFragment() {
 
     @AddTrace(name = "automatic")
     private fun performAutomaticTrace() {
-        for (i in 1..10) {
+        for (i in 1..(1..20).shuffled().last()) {
             Log.d("Performance", "Value is $i")
             sleep(100)
         }
     }
-
 }
