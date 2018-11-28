@@ -40,7 +40,7 @@ class InvitesFragment : BaseFirebaseFragment() {
                             .setDeepLink(Uri.parse("https://firebasereference.jakelee.co.uk/deeplink"))
                             .setCustomImage(Uri.parse("https://via.placeholder.com/600x600/4286f4/000000?text=Invite+image!"))
                             .setCallToActionText("Accept invite")
-                            .build(), Companion.INVITE_REQUEST_CODE)
+                            .build(), INVITE_REQUEST_CODE)
 
     private fun processPendingInvite() = FirebaseDynamicLinks.getInstance()
             .getDynamicLink(activity!!.intent)
@@ -56,6 +56,6 @@ class InvitesFragment : BaseFirebaseFragment() {
             .addOnFailureListener { Log.e("Invites", "Failed") }
 
     companion object {
-        public const val INVITE_REQUEST_CODE = 54321
+        const val INVITE_REQUEST_CODE = 54321
     }
 }
