@@ -33,10 +33,6 @@
                     android:icon="@drawable/ic_hosting"
                     android:title="@string/title_hosting"/>
                 <item
-                    android:id="@+id/nav_invites"
-                    android:icon="@drawable/ic_invites"
-                    android:title="@string/title_invites"/>
-                <item
                     android:id="@+id/nav_ml_kit"
                     android:icon="@drawable/ic_ml_kit"
                     android:title="@string/title_ml_kit"/>
@@ -144,6 +140,10 @@
                     android:id="@+id/nav_in_app_messaging"
                     android:icon="@drawable/ic_in_app_messaging"
                     android:title="@string/title_in_app_messaging"/>
+                <item
+                    android:id="@+id/nav_invites"
+                    android:icon="@drawable/ic_invites"
+                    android:title="@string/title_invites"/>
                 <item
                     android:id="@+id/nav_predictions"
                     android:icon="@drawable/ic_predictions"
