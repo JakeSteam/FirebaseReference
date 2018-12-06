@@ -1,5 +1,6 @@
 package uk.co.jakelee.firebasereference
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -11,6 +12,8 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
+import android.widget.Toast
+import com.google.android.gms.appinvite.AppInviteInvitation
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.*
 import uk.co.jakelee.firebasereference.analytics.audiences.AudiencesFragment
@@ -28,8 +31,7 @@ import uk.co.jakelee.firebasereference.develop.cloud_firestore.CloudFirestoreFra
 import uk.co.jakelee.firebasereference.develop.database.DatabaseFragment
 import uk.co.jakelee.firebasereference.develop.functions.FunctionsFragment
 import uk.co.jakelee.firebasereference.develop.hosting.HostingFragment
-import uk.co.jakelee.firebasereference.develop.invites.InvitesFragment
-import uk.co.jakelee.firebasereference.develop.ml_kit.MLKitFragment
+import uk.co.jakelee.firebasereference.develop.mlkit.MLKitFragment
 import uk.co.jakelee.firebasereference.develop.storage.StorageFragment
 import uk.co.jakelee.firebasereference.grow.ab_testing.ABTestingFragment
 import uk.co.jakelee.firebasereference.grow.admob.AdmobFragment
@@ -37,6 +39,7 @@ import uk.co.jakelee.firebasereference.grow.app_indexing.AppIndexingFragment
 import uk.co.jakelee.firebasereference.grow.cloud_messaging.CloudMessagingFragment
 import uk.co.jakelee.firebasereference.grow.dynamic_links.DynamicLinksFragment
 import uk.co.jakelee.firebasereference.grow.in_app_messaging.InAppMessagingFragment
+import uk.co.jakelee.firebasereference.grow.invites.InvitesFragment
 import uk.co.jakelee.firebasereference.grow.predictions.PredictionsFragment
 import uk.co.jakelee.firebasereference.grow.remote_config.RemoteConfigFragment
 import uk.co.jakelee.firebasereference.quality.crashlytics.CrashlyticsFragment
@@ -134,5 +137,19 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun displayFragment(fragment: Fragment) {
         val ft = supportFragmentManager.beginTransaction()
         ft.replace(R.id.mainFrame, fragment, "ACTIVE_FRAGMENT").commit()
+    }
+
+    // Used by Invites
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == InvitesFragment.INVITE_REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                val ids = AppInviteInvitation.getInvitationIds(resultCode, data!!)
+                val idsString = ids.joinToString()
+                Toast.makeText(this, "Invited: $idsString", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "Invite sending failed / cancelled: $resultCode", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 }

@@ -1,19 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/title_home"
-        android:textSize="20sp"/>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/hamburgerImage"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/ic_hamburger"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/hamburgerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/home_hamburger"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/hamburgerImage"
+            app:layout_constraintStart_toEndOf="@+id/hamburgerImage"
+            app:layout_constraintTop_toTopOf="@+id/hamburgerImage" />
+
+        <TextView
+            android:id="@+id/tutorialText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/home_tutorial"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tutorialImage"
+            app:layout_constraintStart_toEndOf="@+id/tutorialImage"
+            app:layout_constraintTop_toTopOf="@+id/tutorialImage" />
+
+        <ImageView
+            android:id="@+id/tutorialImage"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_tutorial"
+            android:tint="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hamburgerImage" />
+
+        <TextView
+            android:id="@+id/documentationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/home_documentation"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/documentationImage"
+            app:layout_constraintStart_toEndOf="@+id/documentationImage"
+            app:layout_constraintTop_toTopOf="@+id/documentationImage" />
+
+        <ImageView
+            android:id="@+id/documentationImage"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_documentation"
+            android:tint="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tutorialImage" />
+
+        <TextView
+            android:id="@+id/firebaseText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/home_firebase_console"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/firebaseImage"
+            app:layout_constraintStart_toEndOf="@+id/firebaseImage"
+            app:layout_constraintTop_toTopOf="@+id/firebaseImage" />
+
+        <ImageView
+            android:id="@+id/firebaseImage"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_firebase_console"
+            android:tint="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/documentationImage" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:autoLink="web"
+            android:text="@string/home_description"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/firebaseImage" />
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

@@ -4,6 +4,10 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'io.fabric'
+
+apply plugin: 'com.google.firebase.firebase-perf'
+
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -47,8 +51,25 @@ dependencies {
     // Firebase Realtime Database
     implementation 'com.google.firebase:firebase-database:16.0.4'
 
+    // Firebase Cloud Functions
+    implementation 'com.google.firebase:firebase-functions:16.1.2'
+
     // Firebase Cloud Storage
     implementation 'com.google.firebase:firebase-storage:16.0.4'
+
+    // Firebase ML Kit
+    implementation 'com.google.firebase:firebase-ml-vision:18.0.1'
+    implementation 'com.google.firebase:firebase-ml-vision-face-model:17.0.2'
+    implementation 'com.google.firebase:firebase-ml-vision-image-label-model:17.0.2'
+
+    // Firebase Performance Monitoring
+    implementation 'com.google.firebase:firebase-perf:16.2.0'
+
+    // Firebase Crashlytics
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.6'
+
+    // Firebase Invites
+    implementation 'com.google.firebase:firebase-invites:16.0.4'
 
     // Testing
     testImplementation 'junit:junit:4.12'
