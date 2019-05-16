@@ -1,5 +1,8 @@
 package uk.co.jakelee.firebasereference
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -47,5 +50,12 @@ abstract class BaseFirebaseFragment : Fragment() {
 
     fun showToast(text: String) {
         Toast.makeText(activity, text, Toast.LENGTH_SHORT).show()
+    }
+
+    fun copyToClipboard(text: String) {
+        val clipboard = context!!.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clip = ClipData.newPlainText("Copied content", text)
+        clipboard.primaryClip = clip
+        showToast("$text copied to clipboard!")
     }
 }

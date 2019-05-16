@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".grow.dynamic_links.DynamicLinksFragment">
+    tools:context=".grow.dynamic_links.DynamicLinksFragment"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
 
-    <TextView
+    <Button
+        android:id="@+id/makeSimpleLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/title_dynamic_links"
-        android:textSize="20sp"/>
+        android:text="Make simple link"/>
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/makeShortLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Make short link"/>
+
+    <Button
+        android:id="@+id/makeVeryShortLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Make very short link"/>
+
+</LinearLayout>

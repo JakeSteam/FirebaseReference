@@ -71,6 +71,9 @@ dependencies {
     // Firebase Invites
     implementation 'com.google.firebase:firebase-invites:16.0.4'
 
+    // Firebase Dynamic Links
+    implementation 'com.google.firebase:firebase-dynamic-links:17.0.0'
+
     // Testing
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
